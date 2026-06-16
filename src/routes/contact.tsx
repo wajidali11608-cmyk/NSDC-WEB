@@ -5,69 +5,99 @@ import { useState } from "react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — NSDC × JHSC" },
+      { title: "Signal — NSDC × JHSC" },
       {
         name: "description",
         content:
-          "Initiate contact with NSDC-JHSC. Inquiries, collaborations and applications.",
+          "Apply to join, propose a collab, or send a signal to NSDC × JHSC. We answer within seven days.",
       },
-      { property: "og:title", content: "Contact — NSDC × JHSC" },
+      { property: "og:title", content: "Signal — NSDC × JHSC" },
       {
         property: "og:description",
-        content:
-          "Initiate contact with NSDC-JHSC. Inquiries, collaborations and applications.",
+        content: "Apply, collaborate or send the lab a signal.",
       },
     ],
   }),
   component: ContactPage,
 });
 
-function FieldLabel({ n, children }: { n: string; children: string }) {
+function Field({
+  n,
+  label,
+  children,
+}: {
+  n: string;
+  label: string;
+  children: React.ReactNode;
+}) {
   return (
-    <div className="flex justify-between items-baseline mb-2">
-      <label className="text-[10px] uppercase tracking-[0.3em] opacity-60">
-        {children}
-      </label>
-      <span className="text-[10px] font-mono opacity-30">{n}</span>
-    </div>
+    <label className="block group">
+      <div className="flex items-baseline justify-between mb-2">
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/60 group-focus-within:text-cyan transition-colors">
+          {label}
+        </span>
+        <span className="font-mono text-[10px] text-cream/30">{n}</span>
+      </div>
+      {children}
+    </label>
   );
 }
 
+const inputCls =
+  "w-full bg-transparent border-b hairline-strong py-3 text-base focus:outline-none focus:border-cyan transition-colors placeholder:text-cream/30 font-serif";
+
 function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [intent, setIntent] = useState("Apply 25/26");
 
   return (
     <SiteLayout>
-      <section className="pt-32 lg:pt-40 px-6 lg:px-12 pb-16">
-        <div className="grid grid-cols-12 gap-4">
+      {/* HERO */}
+      <section className="relative pt-36 lg:pt-48 px-6 lg:px-12 pb-20 overflow-hidden">
+        <div className="aurora opacity-40" />
+        <div className="noise" />
+        <div className="relative z-10 grid grid-cols-12 gap-4">
           <div className="col-span-12 lg:col-span-10 animate-rise">
-            <span className="text-[10px] uppercase tracking-[0.4em] opacity-50 mb-6 block">
-              ¶ 04 / Initiate
-            </span>
-            <h1 className="font-display font-extrabold text-[18vw] lg:text-[12vw] leading-[0.85] uppercase tracking-tighter">
-              Let's <br />
-              <span className="outline-text-accent">Talk.</span>
+            <div className="flex items-center gap-3 mb-8 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse-dot" />
+              <span>¶ 04 / Signal</span>
+              <span className="opacity-40">/</span>
+              <span>Mean reply time · 3.2 days</span>
+            </div>
+            <h1 className="font-serif text-[15vw] lg:text-[11vw] leading-[0.88] tracking-tighter">
+              Send a<br />
+              <span className="serif-italic gradient-text">signal</span>.
             </h1>
+          </div>
+          <div className="col-span-12 lg:col-span-7 lg:col-start-4 mt-8 animate-rise" style={{ animationDelay: "150ms" }}>
+            <p className="font-serif text-xl lg:text-2xl leading-snug text-pretty text-cream/85">
+              Applications for Session 25/26 are open across every division.
+              You can also reach out for collaborations, sponsorships, or just
+              to tell us we are wrong.
+            </p>
           </div>
         </div>
       </section>
 
       {/* INFO STRIP */}
-      <section className="border-t border-brand-line grid grid-cols-1 lg:grid-cols-3 border-b border-brand-line">
+      <section className="grid grid-cols-1 lg:grid-cols-3 border-y hairline-strong">
         {[
-          { n: "01", label: "Email", value: "lab@nsdc-jhsc.in" },
-          { n: "02", label: "HQ", value: "Jamia Hamdard, New Delhi" },
-          { n: "03", label: "Hours", value: "Mon — Fri / 10:00 → 18:00" },
+          { n: "01", label: "Email", value: "lab@nsdc-jhsc.in", sub: "All inquiries · 7-day reply" },
+          { n: "02", label: "HQ", value: "Jai Hind College", sub: "Churchgate, Mumbai 400020" },
+          { n: "03", label: "Hours", value: "Mon — Fri", sub: "10:00 → 18:00 IST" },
         ].map((c, i) => (
           <div
             key={c.n}
-            className={`p-6 lg:p-8 ${i < 2 ? "border-b lg:border-b-0 lg:border-r border-brand-line" : ""}`}
+            className={`p-6 lg:p-10 ${i < 2 ? "border-b lg:border-b-0 lg:border-r hairline-strong" : ""}`}
           >
-            <span className="text-xs opacity-50 block mb-6 uppercase tracking-widest">
-              {c.n} / {c.label}
-            </span>
-            <div className="font-display text-xl lg:text-2xl font-bold uppercase tracking-tight">
+            <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/40 mb-6">
+              ¶ {c.n} · {c.label}
+            </div>
+            <div className="font-serif text-3xl lg:text-4xl tracking-tighter leading-none">
               {c.value}
+            </div>
+            <div className="mt-3 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/60">
+              {c.sub}
             </div>
           </div>
         ))}
@@ -80,121 +110,143 @@ function ContactPage() {
             e.preventDefault();
             setSubmitted(true);
           }}
-          className="px-6 lg:px-12 py-16 lg:py-24 border-b lg:border-b-0 lg:border-r border-brand-line"
+          className="px-6 lg:px-12 py-16 lg:py-24 border-b lg:border-b-0 lg:border-r hairline-strong"
         >
-          <h2 className="font-display text-3xl lg:text-4xl font-bold uppercase tracking-tight mb-12">
-            Transmission Form
+          <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50 mb-3">
+            ¶ Transmission form
+          </div>
+          <h2 className="font-serif text-4xl lg:text-5xl tracking-tighter mb-12">
+            Tell us why<br />
+            you're <span className="serif-italic text-cyan">here</span>.
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <FieldLabel n="A1">Identity</FieldLabel>
-              <input
-                required
-                type="text"
-                placeholder="Your name"
-                className="w-full bg-transparent border-b border-brand-fg/30 py-3 text-base focus:outline-none focus:border-brand-accent transition-colors placeholder:opacity-30"
-              />
-            </div>
-            <div>
-              <FieldLabel n="A2">Uplink</FieldLabel>
-              <input
-                required
-                type="email"
-                placeholder="you@domain.io"
-                className="w-full bg-transparent border-b border-brand-fg/30 py-3 text-base focus:outline-none focus:border-brand-accent transition-colors placeholder:opacity-30"
-              />
+          <div className="mb-8">
+            <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/60 mb-3">Intent</div>
+            <div className="flex flex-wrap gap-2">
+              {["Apply 25/26", "Collaborate", "Sponsor", "Other"].map((opt) => (
+                <button
+                  type="button"
+                  key={opt}
+                  onClick={() => setIntent(opt)}
+                  className={`px-4 py-2 rounded-full font-mono text-[10px] uppercase tracking-[0.2em] border hairline-strong transition-colors ${
+                    intent === opt ? "bg-cyan text-ink border-cyan" : "hover:bg-cream/5"
+                  }`}
+                >
+                  {opt}
+                </button>
+              ))}
             </div>
           </div>
 
-          <div className="mb-6">
-            <FieldLabel n="B1">Subject</FieldLabel>
-            <input
-              type="text"
-              placeholder="Why are you reaching out?"
-              className="w-full bg-transparent border-b border-brand-fg/30 py-3 text-base focus:outline-none focus:border-brand-accent transition-colors placeholder:opacity-30"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <Field n="A1" label="Identity">
+              <input required type="text" placeholder="Your name" className={inputCls} />
+            </Field>
+            <Field n="A2" label="Uplink">
+              <input required type="email" placeholder="you@domain.io" className={inputCls} />
+            </Field>
           </div>
+
+          {intent === "Apply 25/26" && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <Field n="B1" label="Division">
+                <select className={inputCls + " appearance-none"}>
+                  <option className="bg-ink">Core</option>
+                  <option className="bg-ink">Tech</option>
+                  <option className="bg-ink">Data Science</option>
+                  <option className="bg-ink">Media</option>
+                  <option className="bg-ink">Content</option>
+                  <option className="bg-ink">Social Media</option>
+                </select>
+              </Field>
+              <Field n="B2" label="Portfolio / link">
+                <input type="url" placeholder="https://" className={inputCls} />
+              </Field>
+            </div>
+          )}
 
           <div className="mb-10">
-            <FieldLabel n="C1">Transmission</FieldLabel>
-            <textarea
-              required
-              rows={5}
-              placeholder="The signal..."
-              className="w-full bg-transparent border-b border-brand-fg/30 py-3 text-base focus:outline-none focus:border-brand-accent transition-colors placeholder:opacity-30 resize-none"
-            />
+            <Field n="C1" label="The signal">
+              <textarea
+                required
+                rows={5}
+                placeholder="A few honest sentences about what you want to make with us."
+                className={inputCls + " resize-none"}
+              />
+            </Field>
           </div>
 
           <button
             type="submit"
             disabled={submitted}
-            className="group inline-flex items-center gap-4 border border-brand-fg px-8 py-4 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all text-xs uppercase tracking-[0.3em] disabled:bg-brand-accent disabled:border-brand-accent disabled:text-white"
+            className="group inline-flex items-center gap-3 px-7 py-4 rounded-full bg-cyan text-ink font-mono text-[11px] uppercase tracking-[0.18em] hover:bg-cream transition-colors disabled:opacity-80"
           >
-            {submitted ? "Signal Received ✓" : "Transmit Signal"}
-            <span className="group-hover:translate-x-2 transition-transform">→</span>
+            {submitted ? "Signal received ✓" : "Transmit signal"}
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
           </button>
         </form>
 
         {/* MAP */}
-        <div className="relative min-h-[480px] lg:min-h-full bg-[#0a0a0a] overflow-hidden">
+        <div className="relative min-h-[480px] lg:min-h-full bg-ink-2 overflow-hidden">
           <iframe
-            title="NSDC-JHSC Location"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=77.2745%2C28.5125%2C77.3045%2C28.5325&layer=mapnik&marker=28.5225%2C77.2895"
-            className="absolute inset-0 w-full h-full grayscale contrast-125 invert opacity-70"
+            title="NSDC × JHSC location"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=72.8175%2C18.9305%2C72.8295%2C18.9385&layer=mapnik&marker=18.9345%2C72.8235"
+            className="absolute inset-0 w-full h-full grayscale contrast-125 invert opacity-60"
             loading="lazy"
           />
-          <div className="absolute inset-0 pointer-events-none mix-blend-multiply bg-brand-accent/10" />
-          <div className="absolute top-6 left-6 right-6 flex justify-between items-start text-[10px] uppercase tracking-[0.3em] pointer-events-none">
-            <span>28.5225° N / 77.2895° E</span>
-            <span className="bg-brand-accent text-white px-2 py-0.5">
-              ● Live
+          <div className="absolute inset-0 pointer-events-none mix-blend-overlay bg-cyan/15" />
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-ink via-transparent to-transparent" />
+
+          <div className="absolute top-6 left-6 right-6 flex justify-between items-start font-mono text-[10px] uppercase tracking-[0.3em] pointer-events-none">
+            <span className="px-2 py-1 rounded-full glass">18.9345° N · 72.8235° E</span>
+            <span className="px-2 py-1 rounded-full bg-cyan text-ink flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-ink animate-pulse-dot" />
+              Live
             </span>
           </div>
           <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
-            <div className="font-display text-3xl lg:text-4xl font-bold uppercase leading-none mix-blend-difference">
-              Jamia <br />
-              Hamdard
+            <div className="font-serif text-5xl lg:text-7xl tracking-tighter leading-[0.9] mix-blend-difference">
+              Jai Hind<br />
+              <span className="serif-italic">College.</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* SOCIAL */}
-      <section className="px-6 lg:px-12 py-24 border-t border-brand-line">
+      <section className="px-6 lg:px-12 py-24 border-t hairline-strong">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-12">
-          <h2 className="font-display text-4xl lg:text-6xl font-bold uppercase tracking-tighter">
-            Follow the <br />
-            <span className="text-brand-accent">Signal</span>
-          </h2>
-          <p className="text-xs uppercase tracking-widest opacity-50 max-w-xs">
-            We broadcast across six channels. Pick your frequency.
+          <div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50 mb-3">
+              ¶ Frequencies
+            </div>
+            <h2 className="font-serif text-5xl lg:text-6xl tracking-tighter">
+              Follow the<br />
+              <span className="serif-italic text-cyan">signal</span>.
+            </h2>
+          </div>
+          <p className="font-serif text-cream/70 max-w-xs leading-relaxed">
+            Six channels. We broadcast almost daily — you can mute four and
+            still get the work.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-brand-line">
-          {[
-            "Instagram",
-            "Twitter",
-            "LinkedIn",
-            "GitHub",
-            "Discord",
-            "YouTube",
-          ].map((s, i) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-line">
+          {["Instagram", "Twitter", "LinkedIn", "GitHub", "Discord", "YouTube"].map((s, i) => (
             <a
               key={s}
               href="#"
-              className="group bg-brand-bg aspect-square flex flex-col justify-between p-4 lg:p-6 hover:bg-brand-accent transition-colors"
+              className="group bg-ink aspect-square flex flex-col justify-between p-5 lg:p-6 hover:bg-ink-2 transition-colors relative overflow-hidden"
             >
-              <span className="text-[10px] opacity-50 font-mono">
+              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/40">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div>
-                <div className="font-display text-xl lg:text-2xl font-bold uppercase tracking-tight">
+                <div className="font-serif text-2xl lg:text-3xl tracking-tighter leading-none group-hover:text-cyan transition-colors">
                   {s}
                 </div>
-                <div className="mt-2 text-[10px] uppercase tracking-widest opacity-70 group-hover:opacity-100">
-                  → @nsdc.jhsc
+                <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50">
+                  @nsdc.jhsc <span className="ml-2 inline-block group-hover:translate-x-1 transition-transform">↗</span>
                 </div>
               </div>
             </a>

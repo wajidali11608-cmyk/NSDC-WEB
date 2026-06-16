@@ -128,7 +128,8 @@ function MemberCard({ m, idx, accent }: { m: Member; idx: number; accent: keyof 
 }
 
 function TeamDetail() {
-  const { team } = Route.useLoaderData();
+  const { slug } = Route.useParams();
+  const team = getTeam(slug)!;
   const leads = team.members.filter((m) => m.lead);
   const others = team.members.filter((m) => !m.lead);
 

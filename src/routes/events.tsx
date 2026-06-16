@@ -1,20 +1,19 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 
 export const Route = createFileRoute("/events")({
   head: () => ({
     meta: [
-      { title: "Events — NSDC × JHSC" },
+      { title: "Field Notes — NSDC × JHSC" },
       {
         name: "description",
         content:
-          "Workshops, hackathons, exhibitions and research talks hosted by NSDC-JHSC.",
+          "Workshops, exhibitions, drops and research talks from NSDC × JHSC. Vol. 02 — Kinetic Systems.",
       },
-      { property: "og:title", content: "Events — NSDC × JHSC" },
+      { property: "og:title", content: "Field Notes — NSDC × JHSC" },
       {
         property: "og:description",
-        content:
-          "Workshops, hackathons, exhibitions and research talks hosted by NSDC-JHSC.",
+        content: "Workshops, exhibitions, drops and research talks from the lab.",
       },
     ],
   }),
@@ -24,138 +23,205 @@ export const Route = createFileRoute("/events")({
 const UPCOMING = [
   {
     n: "01",
-    date: "12.04.25",
+    date: "12 · 04 · 26",
+    day: "Sat",
     title: "The Hacker Collective",
     type: "Hackathon",
-    loc: "Main Hall / 18:00 → 22:00",
-    desc: "48 hours of uninterrupted neural net training, type experiments and caffeine.",
+    division: "Tech × Data Science",
+    loc: "Main Hall · 18:00 → 22:00",
+    desc: "48 hours of uninterrupted neural-net training, type experiments and caffeine. Open to non-members under invite.",
+    cta: "Register",
   },
   {
     n: "02",
-    date: "15.04.25",
+    date: "15 · 04 · 26",
+    day: "Tue",
     title: "Design Systems Forum",
     type: "Talk",
-    loc: "Virtual / 14:00 → 16:30",
-    desc: "Open studio session on building tokens, variants and motion primitives at scale.",
+    division: "Tech",
+    loc: "Virtual · 14:00 → 16:30",
+    desc: "Open studio session on building tokens, variants and motion primitives at the scale of a real product team.",
+    cta: "RSVP",
   },
   {
     n: "03",
-    date: "22.04.25",
+    date: "22 · 04 · 26",
+    day: "Tue",
     title: "Aesthetic Anarchy",
     type: "Exhibition",
-    loc: "Basement Gallery / All Day",
-    desc: "A one-night exhibition of student work — kinetic identities, shaders, glitch.",
+    division: "Media × Content",
+    loc: "Basement Gallery · All Day",
+    desc: "A one-night exhibition of student work — kinetic identities, shaders, glitch, printed matter and field recordings.",
+    cta: "Add to calendar",
   },
 ];
 
 const PAST = [
-  { n: "001", title: "Kinetic Identity V2", tag: "Typography", date: "OCT 2024" },
-  { n: "002", title: "Generative Flora", tag: "Algorithmic Art", date: "SEP 2024" },
-  { n: "003", title: "Glitch Soundscapes", tag: "Audio-Visual", date: "AUG 2024" },
-  { n: "004", title: "Neural Cartography", tag: "Data Science", date: "JUL 2024" },
-  { n: "005", title: "Spatial Type Studies", tag: "WebGL", date: "JUN 2024" },
-  { n: "006", title: "Council of Pixels", tag: "Exhibition", date: "MAY 2024" },
+  { n: "012", title: "Kinetic Identity v2", tag: "Typography", date: "OCT 2025", team: "Tech" },
+  { n: "011", title: "Generative Flora", tag: "Algorithmic Art", date: "SEP 2025", team: "Media" },
+  { n: "010", title: "Glitch Soundscapes", tag: "Audio · Visual", date: "AUG 2025", team: "Media × Tech" },
+  { n: "009", title: "Tiny-T5 Release", tag: "ML · NLP", date: "AUG 2025", team: "Data Science" },
+  { n: "008", title: "Neural Cartography", tag: "Data Viz", date: "JUL 2025", team: "Data Science" },
+  { n: "007", title: "Spatial Type Studies", tag: "WebGL", date: "JUN 2025", team: "Tech" },
+  { n: "006", title: "Council of Pixels", tag: "Exhibition", date: "MAY 2025", team: "All" },
+  { n: "005", title: "Letters from the Lab #08", tag: "Newsletter", date: "APR 2025", team: "Content" },
 ];
 
 function EventsPage() {
   return (
     <SiteLayout>
-      {/* HEADER */}
-      <section className="pt-32 lg:pt-40 px-6 lg:px-12 pb-16 lg:pb-24">
-        <div className="grid grid-cols-12 gap-4 items-end">
+      {/* HERO */}
+      <section className="relative pt-36 lg:pt-48 px-6 lg:px-12 pb-20 overflow-hidden">
+        <div className="aurora opacity-50" />
+        <div className="noise" />
+        <div className="relative z-10 grid grid-cols-12 gap-4 items-end">
           <div className="col-span-12 lg:col-span-9 animate-rise">
-            <span className="text-[10px] uppercase tracking-[0.4em] opacity-50 mb-6 block">
-              ¶ 02 / Laboratory
-            </span>
-            <h1 className="font-display font-extrabold text-[18vw] lg:text-[12vw] leading-[0.85] uppercase tracking-tighter">
-              The <span className="outline-text">Calendar</span>
+            <div className="flex items-center gap-3 mb-8 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse-dot" />
+              <span>¶ 02 / Field Notes</span>
+              <span className="opacity-40">/</span>
+              <span>All operations run in public</span>
+            </div>
+            <h1 className="font-serif text-[15vw] lg:text-[11vw] leading-[0.88] tracking-tighter">
+              Calendar of<br />
+              <span className="serif-italic gradient-text">experiments.</span>
             </h1>
           </div>
-          <div className="hidden lg:block col-span-3 text-right text-xs uppercase tracking-widest opacity-60">
-            <p>
-              All operations <br />
-              run in public.
+          <div className="hidden lg:block col-span-3 text-right">
+            <p className="font-serif serif-italic text-cream/70 text-lg leading-snug">
+              Tickets are free.<br />
+              Doors are honest.<br />
+              Snacks are usually fine.
             </p>
           </div>
         </div>
       </section>
 
       {/* UPCOMING — editorial cards */}
-      <section className="px-6 lg:px-12 py-16 border-t border-brand-line">
-        <div className="flex justify-between items-end mb-12">
-          <h2 className="text-2xl lg:text-3xl font-display font-bold uppercase tracking-tight">
-            Upcoming
-          </h2>
-          <span className="text-[10px] uppercase tracking-[0.3em] opacity-50">
-            {UPCOMING.length} scheduled
+      <section className="px-6 lg:px-12 py-16 border-t hairline-strong">
+        <div className="flex items-end justify-between mb-12">
+          <div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50 mb-3">
+              ¶ Upcoming
+            </div>
+            <h2 className="font-serif text-4xl lg:text-5xl tracking-tighter">
+              On the <span className="serif-italic">horizon</span>.
+            </h2>
+          </div>
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50">
+            {UPCOMING.length} scheduled · Spring 26
           </span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-brand-line">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-line">
           {UPCOMING.map((e) => (
             <article
               key={e.n}
-              className="group bg-brand-bg p-8 lg:p-10 hover:bg-brand-accent transition-colors duration-500 cursor-pointer relative overflow-hidden"
+              className="group bg-ink p-8 lg:p-10 hover:bg-ink-2 transition-colors duration-500 relative overflow-hidden flex flex-col"
             >
-              <div className="flex justify-between items-start mb-12 text-[10px] uppercase tracking-widest opacity-70 group-hover:opacity-100">
-                <span>[ {e.n} / 03 ]</span>
-                <span>{e.type}</span>
+              <div className="flex justify-between items-start mb-10 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50">
+                <span>E·{e.n} / {String(UPCOMING.length).padStart(2, "0")}</span>
+                <span className="text-cyan">{e.type}</span>
               </div>
-              <div className="font-display text-4xl lg:text-5xl font-bold mb-6 leading-none">
-                {e.date}
+
+              <div className="flex items-baseline gap-3 mb-6">
+                <span className="font-serif text-5xl lg:text-6xl tracking-tighter leading-none">
+                  {e.date.split(" · ")[0]}
+                </span>
+                <span className="font-serif serif-italic text-cream/60 text-xl">
+                  {e.day} · {e.date.split(" · ").slice(1).join("/")}
+                </span>
               </div>
-              <h3 className="font-display text-2xl lg:text-3xl font-bold uppercase tracking-tight mb-4">
+
+              <h3 className="font-serif text-3xl lg:text-4xl tracking-tighter leading-[0.95] mb-3">
                 {e.title}
               </h3>
-              <p className="text-sm leading-relaxed opacity-80 mb-8">{e.desc}</p>
-              <div className="border-t border-brand-fg/30 pt-4 flex justify-between items-center text-[10px] uppercase tracking-widest">
-                <span>{e.loc}</span>
-                <span className="text-lg group-hover:translate-x-2 transition-transform">
-                  →
-                </span>
+              <p className="text-sm text-cream/70 leading-relaxed mb-6 text-pretty flex-1">
+                {e.desc}
+              </p>
+              <div className="border-t hairline pt-4 mt-auto">
+                <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/60 mb-3">
+                  {e.division} · {e.loc}
+                </div>
+                <button className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cream text-ink font-mono text-[10px] uppercase tracking-[0.2em] hover:bg-cyan transition-colors">
+                  {e.cta} <span>→</span>
+                </button>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      {/* TIMELINE — past */}
-      <section className="px-6 lg:px-12 py-32 border-t border-brand-line">
+      {/* TIMELINE */}
+      <section className="px-6 lg:px-12 py-24 border-t hairline-strong">
         <div className="grid grid-cols-12 gap-4 mb-12">
-          <div className="col-span-12 lg:col-span-3">
-            <span className="text-[10px] uppercase tracking-[0.4em] opacity-50">
+          <div className="col-span-12 lg:col-span-4">
+            <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50 mb-3">
               ¶ Archive
-            </span>
-          </div>
-          <div className="col-span-12 lg:col-span-9">
-            <h2 className="text-3xl lg:text-5xl font-display font-bold uppercase tracking-tighter">
-              Past Operations
+            </div>
+            <h2 className="font-serif text-5xl lg:text-7xl tracking-tighter leading-[0.9]">
+              Past<br />
+              <span className="serif-italic gradient-text">operations</span>.
             </h2>
+          </div>
+          <div className="col-span-12 lg:col-span-6 lg:col-start-7 flex items-end">
+            <p className="font-serif text-lg lg:text-xl text-cream/70 leading-relaxed text-pretty">
+              The lab keeps a public record. Hover any row for the team that
+              led it. Click for the field write-up.
+            </p>
           </div>
         </div>
 
-        <div className="space-y-px bg-brand-line">
+        <ul className="divide-y hairline-strong">
           {PAST.map((p) => (
-            <div
+            <li
               key={p.n}
-              className="group bg-brand-bg py-8 lg:py-10 flex flex-col md:flex-row md:items-center justify-between hover:bg-[#141414] transition-colors px-4 cursor-pointer"
+              className="group grid grid-cols-12 gap-3 items-baseline py-6 lg:py-8 hover:bg-ink-2/40 transition-colors px-2 cursor-pointer"
             >
-              <div className="flex items-center gap-8">
-                <span className="text-xs opacity-40 font-mono">{p.n}</span>
-                <h3 className="text-2xl lg:text-3xl font-display font-bold uppercase group-hover:pl-4 group-hover:text-brand-accent transition-all duration-500">
-                  {p.title}
-                </h3>
-              </div>
-              <div className="flex items-center gap-6 lg:gap-12 mt-4 md:mt-0">
-                <span className="text-[10px] border border-brand-fg/20 px-3 py-1 uppercase tracking-widest">
-                  {p.tag}
-                </span>
-                <span className="text-[10px] opacity-60 uppercase tracking-widest">
-                  {p.date}
-                </span>
-              </div>
-            </div>
+              <span className="col-span-2 lg:col-span-1 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/40">
+                {p.n}
+              </span>
+              <h3 className="col-span-10 lg:col-span-6 font-serif text-2xl lg:text-4xl tracking-tighter leading-none group-hover:translate-x-2 group-hover:text-cyan transition-all duration-500">
+                {p.title}
+              </h3>
+              <span className="col-span-6 lg:col-span-2 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/60">
+                {p.team}
+              </span>
+              <span className="col-span-6 lg:col-span-2 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/60 text-right">
+                {p.tag}
+              </span>
+              <span className="hidden lg:block col-span-1 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/40 text-right">
+                {p.date}
+              </span>
+            </li>
           ))}
+        </ul>
+      </section>
+
+      {/* CTA */}
+      <section className="relative px-6 lg:px-12 py-28 border-t hairline-strong overflow-hidden">
+        <div className="aurora opacity-25" />
+        <div className="relative z-10 grid grid-cols-12 gap-4 items-end">
+          <div className="col-span-12 lg:col-span-8">
+            <h2 className="font-serif text-5xl lg:text-7xl tracking-tighter leading-[0.95]">
+              Want to host with the lab,<br />
+              or <span className="serif-italic text-cyan">just show up</span>?
+            </h2>
+          </div>
+          <div className="col-span-12 lg:col-span-3 lg:col-start-10 flex flex-col gap-3">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-between px-5 py-3.5 rounded-full bg-cyan text-ink font-mono text-[11px] uppercase tracking-[0.18em]"
+            >
+              Propose a collab <span>→</span>
+            </Link>
+            <Link
+              to="/teams"
+              className="inline-flex items-center justify-between px-5 py-3.5 rounded-full border hairline-strong font-mono text-[11px] uppercase tracking-[0.18em] hover:bg-cream/5 transition-colors"
+            >
+              Find a team <span>→</span>
+            </Link>
+          </div>
         </div>
       </section>
     </SiteLayout>

@@ -105,10 +105,10 @@ function Index() {
 
       {/* STATS STRIP */}
       <section className="grid grid-cols-2 lg:grid-cols-4 border-y hairline-strong">
-        {STATS.map((s, i, arr) => (
+        {STATS.map((s, i) => (
           <div
             key={s.n}
-            className={`relative p-6 lg:p-10 ${i < arr.length - 1 && (i + 1) % (typeof window !== "undefined" && window.innerWidth >= 1024 ? 4 : 2) !== 0 ? "border-r hairline-strong" : ""} ${i < 2 ? "border-b lg:border-b-0 hairline-strong" : ""} ${i % 2 === 0 ? "border-r hairline-strong lg:border-r" : ""}`}
+            className={`relative p-6 lg:p-10 ${i % 2 === 0 ? "border-r hairline-strong" : ""} lg:border-r lg:last:border-r-0 ${i < 2 ? "border-b lg:border-b-0 hairline-strong" : ""}`}
           >
             <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/40 mb-6 flex justify-between">
               <span>¶ {s.n}</span>

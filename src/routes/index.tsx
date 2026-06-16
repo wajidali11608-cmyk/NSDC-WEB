@@ -22,18 +22,25 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const STATS = [
+type Stat = {
+  n: string;
+  label: string;
+  value?: string;
+  sub?: string;
+  accent?: boolean;
+  address?: string;
+};
+
+const STATS: Stat[] = [
   { n: "01", label: "Members", value: "142", sub: "Active Researchers" },
   { n: "02", label: "Projects", value: "12", sub: "Open Source Nodes", accent: true },
   { n: "03", label: "Status", value: "RUN", sub: "Server Stability 98%" },
   {
     n: "04",
     label: "Location",
-    value: null,
-    sub: null,
     address: "Jamia Hamdard\nDigital Research Lab\nBlock C / 404",
   },
-] as const;
+];
 
 const OPS = [
   { id: "001", title: "Kinetic Identity V2", tag: "Typography", date: "Oct 2024" },

@@ -6,18 +6,19 @@ import heroImg from "@/assets/hero.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "NSDC × JHSC — Digital Research Lab" },
+      { title: "NSDC-JHSC — Student-led Society" },
       {
         name: "description",
         content:
-          "Student-led digital research lab at Jai Hind College. Six divisions, one season, building at the intersection of design, code and the absurd.",
+          "Student-led society at Jamia Hamdard University. All teams, one mission, building the future of code and design.",
       },
-      { property: "og:title", content: "NSDC × JHSC — Digital Research Lab" },
+      { property: "og:title", content: "NSDC-JHSC — Digital Tech Club" },
       {
         property: "og:description",
         content:
-          "Six divisions, one season. Building at the intersection of design, code and the absurd.",
+          "Six teams, one mission. Building at the intersection of design, code and the future.",
       },
+
       { property: "og:image", content: heroImg },
     ],
   }),
@@ -25,11 +26,13 @@ export const Route = createFileRoute("/")({
 });
 
 const STATS = [
-  { n: "01", label: "Researchers", value: "142", sub: "Across six divisions" },
-  { n: "02", label: "Live Projects", value: "12", sub: "Open-source where we can" },
-  { n: "03", label: "Sessions / Yr", value: "48", sub: "Workshops · talks · drops" },
+  { n: "01", label: "Builders", value: "150+", sub: "Active members" },
+  { n: "02", label: "Projects", value: "12", sub: "Live technical lines" },
+  { n: "03", label: "Freq.", value: "48", sub: "Annual sync count" },
   { n: "04", label: "Vol.", value: "02", sub: "Kinetic Systems — 25/26" },
 ];
+
+
 
 const OPS = [
   { id: "001", title: "Kinetic Identity v2", tag: "Typography", date: "Oct 2025", team: "Tech" },
@@ -54,44 +57,49 @@ function Index() {
               <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse-dot" />
               <span>Vol. 02 — Kinetic Systems</span>
               <span className="opacity-40">/</span>
-              <span>Mumbai, IN</span>
+              <span>New Delhi, IN</span>
               <span className="opacity-40">/</span>
               <span>Session 25/26 — Open</span>
             </div>
             <h1 className="font-serif tracking-[-0.04em] leading-[0.85] text-[19vw] lg:text-[13vw]">
-              A digital
+              Architecting
               <br />
-              <span className="serif-italic gradient-text">research lab</span>
+              <span className="serif-italic gradient-text">the future</span>
               <br />
-              <span className="outline-text">in disguise.</span>
+              <span className="outline-text">in silence.</span>
             </h1>
+
           </div>
         </div>
 
         <div className="relative z-10 grid grid-cols-12 gap-4 mt-12 lg:mt-0 items-end">
           <div className="col-span-12 lg:col-span-5">
             <p className="font-serif text-xl lg:text-2xl leading-snug text-pretty text-cream/80">
-              We are <span className="text-cream">NSDC × JHSC</span> — a
-              student-led collective at Jai Hind College, building at the
-              intersection of design, code and the deliberately absurd. Six
-              divisions. One season. No clients.
+              We are <span className="text-cream">NSDC-JHSC</span> — a
+              student-led society at Jamia Hamdard University. We build at the
+              intersection of design, code, and the future. Six
+              teams. One mission. No compromise.
             </p>
+
+
           </div>
           <div className="col-span-12 lg:col-span-3 lg:col-start-7 flex flex-col gap-3">
             <Link
               to="/teams"
-              className="group flex items-center justify-between px-5 py-4 rounded-2xl glass hover:bg-cream hover:text-ink transition-all"
+              className="group flex items-center justify-between px-5 py-4 rounded-2xl glass hover:bg-cyan/10 hover:text-cyan hover:border-cyan/50 transition-all duration-300"
             >
-              <span className="font-serif text-xl">Meet the collective</span>
+              <span className="font-serif text-xl underline-offset-4 group-hover:underline">Meet the teams</span>
               <span className="text-2xl group-hover:translate-x-1 transition-transform">→</span>
+
             </Link>
             <Link
               to="/contact"
-              className="group flex items-center justify-between px-5 py-4 rounded-2xl glass hover:bg-cyan hover:text-ink transition-all"
+              className="group flex items-center justify-between px-5 py-4 rounded-2xl glass hover:bg-cyan/10 hover:text-cyan hover:border-cyan/50 transition-all duration-300"
             >
-              <span className="font-serif text-xl">Apply 25/26</span>
+              <span className="font-serif text-xl underline-offset-4 group-hover:underline">Join 25/26</span>
               <span className="text-2xl group-hover:translate-x-1 transition-transform">→</span>
             </Link>
+
           </div>
           <div className="hidden lg:flex col-span-3 col-start-10 justify-end">
             <div className="vertical-text font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50 flex items-center gap-4">
@@ -141,9 +149,10 @@ function Index() {
             <div className="mt-12 flex flex-wrap items-center gap-4 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50">
               <span>— The Council</span>
               <span className="opacity-40">/</span>
-              <span>Drafted June 2024</span>
-              <Link to="/teams/core" className="link-underline text-cyan ml-auto">
-                Read the council page →
+              <span>Ratified June 2024</span>
+
+              <Link to="/teams" className="link-underline text-cyan ml-auto">
+                Read the collective →
               </Link>
             </div>
           </div>
@@ -250,7 +259,26 @@ function Index() {
         </div>
 
         <ul className="divide-y hairline-strong">
-          {OPS.map((op) => (
+          {[
+            {
+              id: "01",
+              title: "Nexus Site v2.0 Deployment",
+              t: "Core / Infrastructure",
+              s: "Active",
+            },
+            {
+              id: "02",
+              title: "Winter Recruitment Window",
+              t: "Management / HR",
+              s: "In Progress",
+            },
+            {
+              id: "03",
+              title: "Digital Art Showcase '25",
+              t: "Media / Creative",
+              s: "Scheduled",
+            },
+          ].map((op) => (
             <li
               key={op.id}
               className="group grid grid-cols-12 gap-3 items-baseline py-6 lg:py-8 hover:bg-ink-2/40 transition-colors px-2 cursor-pointer"
@@ -262,13 +290,10 @@ function Index() {
                 {op.title}
               </h3>
               <span className="col-span-6 lg:col-span-2 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/60">
-                {op.team}
+                {op.t}
               </span>
               <span className="col-span-6 lg:col-span-2 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/60 text-right">
-                {op.tag}
-              </span>
-              <span className="hidden lg:block col-span-1 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/40 text-right">
-                {op.date}
+                {op.s}
               </span>
             </li>
           ))}
@@ -293,8 +318,9 @@ function Index() {
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-cyan text-ink font-mono text-[11px] uppercase tracking-[0.18em] hover:bg-cream transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-cyan text-ink font-mono text-[11px] uppercase tracking-[0.18em] border border-transparent hover:bg-ink hover:text-cyan hover:border-cyan transition-all duration-300 active:scale-95 shadow-sm"
             >
+              <span className="w-1.5 h-1.5 rounded-full bg-ink group-hover:bg-cyan animate-pulse-dot" />
               Initiate contact <span>→</span>
             </Link>
             <Link

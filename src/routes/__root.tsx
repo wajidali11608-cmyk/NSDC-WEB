@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "NSDC × JHSC — Digital Research Lab" },
+      { title: "NSDC-JHSC — Digital Research Lab" },
       {
         name: "description",
         content:
           "NSDC-JHSC is a student-led digital research lab pushing the boundaries of design, code and collective experimentation.",
       },
       { name: "author", content: "NSDC-JHSC" },
-      { property: "og:title", content: "NSDC × JHSC — Digital Research Lab" },
+      { property: "og:title", content: "NSDC-JHSC — Digital Research Lab" },
       {
         property: "og:description",
         content:

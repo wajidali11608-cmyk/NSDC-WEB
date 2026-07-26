@@ -24,12 +24,13 @@ export const Route = createFileRoute("/teams/$slug")({
   notFoundComponent: () => (
     <SiteLayout>
       <section className="pt-40 px-6 lg:px-12 pb-32 min-h-[60vh] flex flex-col items-start gap-6">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/40">404 / Division</span>
-        <h1 className="font-serif text-6xl lg:text-8xl tracking-tighter">No such division.</h1>
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/40">404 / Team</span>
+        <h1 className="font-serif text-6xl lg:text-8xl tracking-tighter">No such team.</h1>
         <Link to="/teams" className="font-mono text-xs uppercase tracking-[0.3em] text-cyan link-underline">
-          ← Back to collective
+          ← Back to society
         </Link>
       </section>
+
     </SiteLayout>
   ),
   component: TeamDetail,
@@ -61,20 +62,33 @@ function MemberCard({ m, idx, accent }: { m: Member; idx: number; accent: keyof 
   return (
     <article className="group relative">
       <div className="relative aspect-[4/5] overflow-hidden bg-ink-2 border hairline-strong">
-        <div className="absolute inset-0 dot-grid opacity-30" />
-        <div className="absolute inset-0 grid place-items-center">
-          <span className={`font-serif text-[10rem] leading-none ${accentText[accent]} opacity-10 group-hover:opacity-30 transition-opacity duration-700`}>
-            {initials}
-          </span>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
+        {m.img ? (
+          <div className="absolute inset-0">
+            <img
+              src={m.img}
+              alt={m.name}
+              className="w-full h-full object-cover transition-all duration-700 ease-out scale-110 group-hover:scale-100"
+            />
+          </div>
+        ) : (
+          <>
+            <div className="absolute inset-0 dot-grid opacity-30" />
+            <div className="absolute inset-0 grid place-items-center">
+              <span className={`font-serif text-[10rem] leading-none ${accentText[accent]} opacity-10 group-hover:opacity-30 transition-opacity duration-700`}>
+                {initials}
+              </span>
+            </div>
+          </>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+
 
         <div className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50">
           M·{String(idx + 1).padStart(2, "0")}
         </div>
         {m.lead && (
           <div className={`absolute top-3 right-3 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.3em] rounded-full ${accentBg[accent]}`}>
-            Lead
+            {m.role.includes("Co-Lead") ? "Co-Lead" : "Lead"}
           </div>
         )}
 
@@ -88,31 +102,31 @@ function MemberCard({ m, idx, accent }: { m: Member; idx: number; accent: keyof 
         </div>
 
         {/* Hover reveal panel */}
-        <div className="absolute inset-0 glass opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col p-5">
+        <div className="absolute inset-0 glass opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col p-5 group-hover:backdrop-blur-2xl">
           <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50">
             M·{String(idx + 1).padStart(2, "0")} / Profile
           </div>
-          <div className="mt-3 font-serif text-2xl leading-tight">{m.name}</div>
-          <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/60">
+          <div className="mt-3 font-serif text-2xl leading-tight text-white">{m.name}</div>
+          <div className={`mt-1 font-mono text-[10px] uppercase tracking-[0.3em] ${accentText[accent]}`}>
             {m.role}
           </div>
           {m.bio && (
-            <p className="mt-4 text-sm leading-relaxed text-cream/80 text-pretty">
+            <p className="mt-4 text-sm leading-relaxed text-cream/90 text-pretty font-sans font-light">
               {m.bio}
             </p>
           )}
           <div className="mt-auto">
             {m.skills && (
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
                 {m.skills.map((s) => (
-                  <span key={s} className={`px-2 py-0.5 border ${accentBorder[accent]} rounded-full font-mono text-[9px] uppercase tracking-[0.2em]`}>
+                  <span key={s} className={`px-2 py-0.5 border ${accentBorder[accent]} rounded-full font-mono text-[9px] uppercase tracking-[0.2em] bg-ink/40`}>
                     {s}
                   </span>
                 ))}
               </div>
             )}
             {m.links && m.links.length > 0 && (
-              <div className="mt-3 flex gap-3 font-mono text-[10px] uppercase tracking-[0.3em]">
+              <div className="mt-3 flex gap-3 font-mono text-[10px] uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-200">
                 {m.links.map((l) => (
                   <a key={l.label} href={l.href} className={`${accentText[accent]} link-underline`}>
                     {l.label} ↗
@@ -122,6 +136,7 @@ function MemberCard({ m, idx, accent }: { m: Member; idx: number; accent: keyof 
             )}
           </div>
         </div>
+
       </div>
     </article>
   );
@@ -154,29 +169,37 @@ function TeamDetail() {
           </div>
 
           <div className="grid grid-cols-12 gap-4 items-end">
-            <div className="col-span-12 lg:col-span-9 animate-rise">
+            <div className="col-span-12 lg:col-span-9 animate-rise relative">
+              <span className="absolute -top-12 -left-6 font-serif text-[28vw] lg:text-[22vw] leading-none opacity-[0.03] select-none pointer-events-none z-[-1]">
+                {team.num}
+              </span>
               <h1 className={`font-serif text-[18vw] lg:text-[13vw] leading-[0.85] tracking-tighter ${accentText[team.accent]}`}>
                 {team.name}.
               </h1>
             </div>
+
             <div className="hidden lg:flex col-span-3 justify-end">
               <div className="vertical-text font-mono text-[10px] uppercase tracking-[0.3em] text-cream/40">
-                ¶ {team.num} · {team.members.length} researchers · est. 2024
+                ¶ {team.num} · {team.members.length} members · est. 2024
               </div>
             </div>
+
           </div>
 
           <div className="grid grid-cols-12 gap-4 mt-12">
             <div className="col-span-12 lg:col-span-7 animate-rise" style={{ animationDelay: "150ms" }}>
               <p className="font-serif text-2xl lg:text-3xl leading-snug text-pretty">
                 <span className="serif-italic text-cream/60">{team.tagline}</span>{" "}
-                {team.mission}
+                Mission: {team.mission}
               </p>
+
+
             </div>
 
             <div className="col-span-12 lg:col-span-4 lg:col-start-9 glass-soft rounded-2xl p-6 animate-rise" style={{ animationDelay: "300ms" }}>
               <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50 mb-4">
-                ¶ Focus areas
+                ¶ System sectors
+
               </div>
               <div className="flex flex-wrap gap-2">
                 {team.focusAreas.map((f) => (
@@ -211,9 +234,10 @@ function TeamDetail() {
       <section className="grid grid-cols-2 lg:grid-cols-4 border-y hairline-strong">
         {[
           { label: "Members", value: String(team.members.length).padStart(2, "0") },
-          { label: "Live Projects", value: String(team.projects.length).padStart(2, "0") },
-          { label: "Rituals / Week", value: String(team.rituals.length).padStart(2, "0") },
-          { label: "Division", value: team.num },
+          { label: "Projects", value: String(team.projects.length).padStart(2, "0") },
+          { label: "Syncs / Week", value: String(team.rituals.length).padStart(2, "0") },
+          { label: "Team", value: team.num },
+
         ].map((s, i, arr) => (
           <div
             key={s.label}
@@ -233,17 +257,22 @@ function TeamDetail() {
       <section className="px-6 lg:px-12 py-24 grid grid-cols-12 gap-6 border-b hairline-strong">
         <div className="col-span-12 lg:col-span-7">
           <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50 mb-6">
-            ¶ Rituals
+            ¶ Syncs
           </div>
           <h2 className="font-serif text-4xl lg:text-5xl tracking-tighter mb-10">
-            How we <span className="serif-italic">show up</span>.
+            Current <span className="serif-italic">frequency</span>.
           </h2>
+
+
           <ul className="divide-y hairline">
             {team.rituals.map((r) => (
-              <li key={r.title} className="py-5 grid grid-cols-12 gap-3 items-baseline">
-                <span className={`col-span-12 md:col-span-3 font-serif text-2xl ${accentText[team.accent]}`}>
-                  {r.title}
-                </span>
+              <li key={r.title} className="py-5 grid grid-cols-12 gap-3 items-baseline group/item">
+                <div className="col-span-12 md:col-span-3 flex items-center gap-3">
+                  <span className={`w-1.5 h-1.5 rounded-full ${accentBg[team.accent]} animate-pulse-dot`} />
+                  <span className={`font-serif text-2xl ${accentText[team.accent]}`}>
+                    {r.title}
+                  </span>
+                </div>
                 <span className="col-span-6 md:col-span-3 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/60">
                   {r.when}
                 </span>
@@ -252,6 +281,7 @@ function TeamDetail() {
                 </span>
               </li>
             ))}
+
           </ul>
         </div>
 
@@ -353,7 +383,7 @@ function TeamDetail() {
         {others.length > 0 && (
           <div>
             <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/40 mb-4">
-              ¶ Researchers
+              ¶ Members
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
               {others.map((m, i) => (
@@ -361,6 +391,7 @@ function TeamDetail() {
               ))}
             </div>
           </div>
+
         )}
       </section>
 

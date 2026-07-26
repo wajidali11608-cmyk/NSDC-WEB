@@ -80,7 +80,8 @@ function EventsPage() {
               <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse-dot" />
               <span>¶ 02 / Field Notes</span>
               <span className="opacity-40">/</span>
-              <span>All operations run in public</span>
+              <span>All research remains public</span>
+
             </div>
             <h1 className="font-serif text-[15vw] lg:text-[11vw] leading-[0.88] tracking-tighter">
               Calendar of<br />
@@ -89,10 +90,11 @@ function EventsPage() {
           </div>
           <div className="hidden lg:block col-span-3 text-right">
             <p className="font-serif serif-italic text-cream/70 text-lg leading-snug">
-              Tickets are free.<br />
+              Open to all.<br />
               Doors are honest.<br />
-              Snacks are usually fine.
+              Signals are clear.
             </p>
+
           </div>
         </div>
       </section>

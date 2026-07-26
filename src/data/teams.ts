@@ -4,9 +4,11 @@ export type Member = {
   lead?: boolean;
   year?: string;
   bio?: string;
+  img?: string;
   skills?: string[];
   links?: { label: string; href: string }[];
 };
+
 
 export type Project = {
   title: string;
@@ -31,192 +33,303 @@ export type Team = {
   members: Member[];
 };
 
+import wajidImg from "@/assets/wajid.jpg";
+
 export const TEAMS: Team[] = [
+
   {
     slug: "core",
     num: "01",
     name: "Core",
-    tagline: "The directional council.",
+    tagline: "The architects of the vision.",
     mission:
-      "We hold the lab's center of gravity — vision, governance, and the discipline of saying no.",
+      "We define the collective's operational logic — orchestrating the high-level vision, membership architecture, and the strategic path of the society.",
+
     brief:
-      "Core is the editorial board. We set the season's theme, allocate budget, mediate between teams, and protect the lab's autonomy from anyone who'd rather we be polite.",
+      "Core is the operational heart. We define the society's seasonal goals, foster collaboration across teams, and maintain the Nexus infrastructure.",
     manifesto:
-      "Direction is a craft. We do not chair meetings; we draft the constitution that lets every other team move faster than they thought they could.",
+      "Leadership is about empowerment. We don't just organize meetups; we build the frameworks that allow every member to create at their highest level.",
+
     accent: "cream",
-    focusAreas: ["Vision", "Governance", "Strategy", "Council Relations", "Budget"],
+    focusAreas: ["Strategic Directives", "Corporate Logic", "Operations", "Partnerships", "The Society Thesis"],
     stack: ["Notion", "Linear", "Figma", "Loom", "Email"],
     rituals: [
-      { title: "Council", when: "Monday 18:00", about: "Strategic sync across all six divisions." },
-      { title: "Open Office", when: "Friday 16:00", about: "Drop-in hours for any member of the lab." },
-      { title: "Quarterly Review", when: "End of term", about: "Retrospective, manifesto revisions, succession." },
+      { title: "Club Sync", when: "Monday 18:00", about: "General meetup for all active teams." },
+      { title: "Open Study", when: "Friday 16:00", about: "Co-working hours for any club member." },
+      { title: "Term Review", when: "End of term", about: "Reviewing shipped work and planning the next season." },
     ],
     projects: [
-      { title: "Vol. 02 — Kinetic Systems", year: "2025", type: "Season Manifesto", blurb: "The 90-page season brief that anchors all work this year." },
-      { title: "Lab Constitution v3", year: "2025", type: "Document", blurb: "Refactored membership, voting and dissolution rules." },
-      { title: "Alumni Network", year: "2024", type: "Initiative", blurb: "Connecting past members to current research lines." },
+      { title: "Vol. 02 — Kinetic Systems", year: "2025", type: "Season Brief", blurb: "The visual and technical guide for our current projects." },
+      { title: "Club Wiki", year: "2025", type: "Internal", blurb: "A central knowledge base for onboarding new members." },
+      { title: "Networking Nights", year: "2024", type: "Event", blurb: "Connecting student builders with industry mentors." },
     ],
     members: [
-      { name: "Aarav Khan", role: "President", lead: true, year: "Final Year", bio: "Architect of the season's editorial direction. Reads more journals than sleeps.", skills: ["Strategy", "Editorial", "Type"], links: [{ label: "Read", href: "#" }] },
-      { name: "Mira Choi", role: "Vice President", lead: true, year: "Final Year", bio: "Operational spine of the lab. Knows where every file lives.", skills: ["Ops", "Facilitation"], links: [{ label: "Read", href: "#" }] },
-      { name: "Lucas Vane", role: "General Secretary", year: "Third Year", bio: "Minutes, motions, and the institutional memory.", skills: ["Writing", "Comms"] },
-      { name: "Isha Gupta", role: "Treasurer", year: "Third Year", bio: "Quietly responsible for the fact that we eat.", skills: ["Finance", "Sponsorship"] },
+      { name: "Mohammad Arsalan", role: "Chair", year: "Final Year", bio: "Directing the collective's vision and seasonal strategy.", skills: ["Strategy", "Leadership"], links: [{ label: "Profile", href: "#" }] },
+      { name: "Mohammad Adnan", role: "Co-Chair", year: "Final Year", bio: "Managing collaborative operations across all society divisions.", skills: ["Management", "Operations"] },
+      { name: "Zainab Manzoor", role: "Vice Chair", year: "Third Year", bio: "Ensuring excellence in our weekly syncs and member engagement.", skills: ["Ops", "Comms"] },
+      { name: "Laiba Razi", role: "Secretary", year: "Second Year", bio: "Handling documentation and internal communications.", skills: ["Writing", "Admin"] },
+      { name: "Adil Ali", role: "Treasurer", year: "Second Year", bio: "Managing the society's financial health and resources.", skills: ["Finance", "Logistics"] },
     ],
   },
   {
     slug: "tech",
     num: "02",
     name: "Tech",
-    tagline: "Engineers and shader poets.",
+    tagline: "The vanguard of engineering.",
     mission:
-      "We build the infrastructure that holds everything else up — from the lab's site to the renderers behind our exhibitions.",
+      "We architect the collective's digital reality — engineering the infrastructure, systems, and sensory platforms that define the society's technical frontier.",
+
     brief:
-      "Tech ships. We maintain the public web surface, the internal tooling, and the experimental graphics stack that the Media team paints with. We obsess over performance budgets and accessibility regressions.",
+      "Tech builds the future. We maintain the Nexus platform, our internal dev tooling, and experiment with the latest in web and graphics technology.",
     manifesto:
-      "If it does not load in under one second on a mid-tier Android, we do not ship it. Beauty without performance is theater.",
+      "Performance is non-negotiable. We don't just ship code; we deliver uncompromising engineering excellence that pushes the boundaries of student technical capability.",
+
     accent: "cyan",
-    focusAreas: ["Web", "WebGL", "Tooling", "DevOps", "Accessibility"],
-    stack: ["TypeScript", "React", "Three.js", "GLSL", "Bun", "Cloudflare", "Postgres"],
+    focusAreas: ["Systems Engineering", "Nexus Core", "WebGL & Shaders", "Open Source Labs", "High-Performance Compute"],
+    stack: ["TypeScript", "React", "Three.js", "GLSL", "Bun", "Vite", "Supabase"],
     rituals: [
-      { title: "Standup", when: "Tue & Thu 17:30", about: "Twenty minutes. Cameras off. Blockers only." },
-      { title: "Shader Club", when: "Saturday 11:00", about: "Open lab where we trade fragment shaders." },
-      { title: "Perf Review", when: "Monthly", about: "We dissect a slow page until it isn't." },
+      { title: "Dev Sync", when: "Tue & Thu 17:30", about: "Quick status updates and code reviews." },
+      { title: "Code Lab", when: "Saturday 11:00", about: "Informal hacking sessions on club projects." },
+      { title: "Tech Talk", when: "Monthly", about: "Members present a tool or technique they've mastered." },
     ],
     projects: [
-      { title: "nsdc-jhsc.in v3", year: "2025", type: "Web", blurb: "The site you are reading. Built on TanStack Start, sub-second TTFB." },
-      { title: "Mosaic", year: "2025", type: "Generative", blurb: "WebGL playground for procedural posters used across the lab." },
-      { title: "Pulse", year: "2024", type: "Tooling", blurb: "Internal CMS for events and member onboarding." },
+      { title: "Nexus Hub v3", year: "2025", type: "Product", blurb: "The central portal for our technical society." },
+      { title: "Project Orbit", year: "2025", type: "Internal Tool", blurb: "A custom tracker for collaborative club projects." },
+      { title: "GLSL Playground", year: "2024", type: "Web", blurb: "A showcase for our members' shader experiments." },
     ],
     members: [
-      { name: "Sarah Malik", role: "Tech Lead", lead: true, year: "Final Year", bio: "Owns the build pipeline and the team's calm.", skills: ["TS", "Architecture", "GLSL"], links: [{ label: "GitHub", href: "#" }] },
-      { name: "Devansh Roy", role: "Backend Engineer", year: "Third Year", bio: "Wrote the auth layer over a single weekend, twice.", skills: ["Node", "Postgres", "Edge"] },
-      { name: "Priya Nair", role: "Frontend Engineer", year: "Third Year", bio: "Motion specialist. Lives in Framer Motion.", skills: ["React", "Motion", "CSS"] },
-      { name: "Omar Siddiqui", role: "WebGL Engineer", year: "Second Year", bio: "Translates art-team poetry into fragment shaders.", skills: ["Three.js", "GLSL"] },
-      { name: "Tanvi Shah", role: "DevOps", year: "Second Year", bio: "Keeps the previews preview-ing.", skills: ["CI", "Cloudflare", "Observability"] },
+      {
+        name: "Wajid Ali",
+        role: "Tech Lead",
+        lead: true,
+        year: "Second Year",
+        bio: "Managing our stack and mentoring the next gen of builders.",
+        img: wajidImg,
+        skills: ["TS", "Systems", "GLSL"],
+        links: [{ label: "GitHub", href: "#" }]
+      },
+
+      { name: "Devansh Roy", role: "Co-Lead & Fullstack Engineer", lead: true, year: "Third Year", bio: "Passionate about building robust backend systems.", skills: ["Node", "SQL", "APIs"]},
+      { name: "Amaan Malik", role: "Frontend Engineer", year: "4th Year", bio: "Bringing designs to life with fluid motion and CSS.", skills: ["React", "Motion", "CSS"] },
+      { name: "Safa Khan", role: "Software Engineer", year: "2nd Year", bio: "Building the core logic of our internal tools.", skills: ["JS", "Web APIs"] },
+      { name: "Farhan Arshad", role: "DevOps & Cloud", year: "2nd Year", bio: "Ensuring our projects are always live and performant.", skills: ["Deployment", "CI/CD"] },
+      { name: "Warda Amir", role: "DevOps & Cloud", year: "4th Year", bio: "Ensuring our projects are always live and performant.", skills: ["Deployment", "CI/CD"] },
     ],
   },
   {
     slug: "data-science",
     num: "03",
     name: "Data Science",
-    tagline: "Models, notebooks, signal.",
+    tagline: "The intelligence layer.",
     mission:
-      "We treat data as a material and statistics as a craft. We ship reproducible notebooks and small, weird models.",
+      "We synthesize raw probability into definitive intelligence — building the generative models and analytical frameworks that power the society's collective knowledge.",
+
     brief:
-      "Data Science runs the lab's research pipeline. We collaborate with the Content team on data journalism, train embedding models for the search inside Pulse, and publish open-source datasets twice a term.",
+      "Data Science is our intelligence unit. We work on machine learning experiments, data storytelling, and open-source models for the community.",
     manifesto:
-      "A model that cannot be explained to a first-year is a model that is hiding. We publish the notebook.",
+      "Data is a story waiting to be told. We use rigorous analysis to find truth and build smarter tools.",
+
     accent: "violet",
-    focusAreas: ["ML Research", "NLP", "Computer Vision", "Data Viz", "Reproducibility"],
-    stack: ["Python", "PyTorch", "DuckDB", "Polars", "Observable", "JupyterLab"],
+    focusAreas: ["Neural Networks", "Generative Systems", "Data Visualization", "Open Data", "Predictive Governance"],
+    stack: ["Python", "PyTorch", "Pandas", "Scikit-Learn", "D3.js", "HuggingFace"],
     rituals: [
-      { title: "Paper Club", when: "Wednesday 19:00", about: "We read one paper, slowly." },
-      { title: "Notebook Review", when: "Friday 15:00", about: "Peer-review of one notebook per week." },
-      { title: "Open Data Drop", when: "Twice a term", about: "We release a dataset with documentation." },
+      { title: "Paper Talk", when: "Wednesday 19:00", about: "Discussing recent breakthroughs in AI/ML." },
+      { title: "DS Workshop", when: "Friday 15:00", about: "Hands-on data analysis on real datasets." },
+      { title: "Public Dataset Drop", when: "Twice a term", about: "Sharing curated data for other campus developers." },
     ],
     projects: [
-      { title: "Campus Acoustics", year: "2025", type: "Dataset", blurb: "10,000 ambient recordings from the campus, fully annotated." },
-      { title: "Tiny-T5", year: "2025", type: "Model", blurb: "A 60M-param T5 fine-tuned on the lab's own writing." },
-      { title: "Atlas of Type", year: "2024", type: "Viz", blurb: "Embedding visualization of 4,000 display typefaces." },
+      { title: "Campus Map AI", year: "2025", type: "Experiment", blurb: "Using ML to optimize student navigation paths." },
+      { title: "Sentiment Tracker", year: "2025", type: "Project", blurb: "Analyzing student feedback trends across campus." },
+      { title: "The Viz Gallery", year: "2024", type: "Web", blurb: "An interactive gallery of club data stories." },
     ],
     members: [
-      { name: "Aditya Verma", role: "DS Lead", lead: true, year: "Final Year", bio: "Writes embeddings the way other people write essays.", skills: ["PyTorch", "RAG", "Eval"] },
-      { name: "Zara Hussain", role: "ML Research", year: "Third Year", bio: "Fine-tunes everything that will let her.", skills: ["LLMs", "Fine-tuning"] },
-      { name: "Karan Mehta", role: "NLP Researcher", year: "Third Year", bio: "Tokenization apologist. Genuinely.", skills: ["NLP", "Linguistics"] },
-      { name: "Nikita Bose", role: "Data Viz", year: "Second Year", bio: "Treats Observable like a sketchbook.", skills: ["D3", "Observable"] },
+      { name: "Mohammad Umar", role: "Lead", lead: true, year: "4th Year", bio: "Building the AI infrastructure for our society.", skills: ["ML", "Python", "NLP"] },
+      { name: "Afaaf Nayyar", role: "Co-Lead", lead: true, year: "2nd Year", bio: "Exploring the limits of generative AI models.", skills: ["Deep Learning", "Models"] },
+      { name: "Karan Mehta", role: "Data Analyst", year: "Third Year", bio: "Turning raw student data into actionable insights.", skills: ["SQL", "Stats"] },
+      { name: "Nikita Bose", role: "Visualization", year: "Second Year", bio: "Specializing in interactive data dashboards.", skills: ["D3", "Viz"] },
     ],
   },
   {
     slug: "media",
     num: "04",
     name: "Media",
-    tagline: "Cameras, color, motion.",
+    tagline: "The visual chroniclers.",
     mission:
-      "We document the lab and produce its visual archive — film, photography, sound, and the occasional zine.",
+      "We document the collective's evolution through cinema-grade visual media — creating the sensory record of our technical path.",
     brief:
-      "Media translates research into images. We run a working color lab, a small podcast, and the lab's YouTube channel. Every event leaves with a film and a print.",
+      "Media is our creative bridge. We produce the visual content, films, and photography that show what the club is building to the world.",
     manifesto:
-      "If it wasn't filmed, it didn't happen. If it was filmed badly, it shouldn't have.",
-    accent: "cream",
-    focusAreas: ["Film", "Photography", "Sound Design", "Color", "Archive"],
-    stack: ["DaVinci", "Ableton", "Capture One", "Premiere", "Sony FX3"],
+      "Visuals are the bridge to reality. We make the society's work not just visible, but visceral and undeniable.",
+
+    accent: "acid",
+    focusAreas: ["Cinematic Direction", "High-End Photography", "Digital Motion", "Acoustic Design", "Identity Systems"],
+    stack: ["Adobe Suite", "DaVinci Resolve", "Sony Systems", "Ableton"],
     rituals: [
-      { title: "Color Night", when: "Tuesday 20:00", about: "We grade footage on the calibrated monitor." },
-      { title: "Field Day", when: "Last Sunday", about: "Whole team out shooting one prompt." },
-      { title: "Listening Room", when: "Thursday 21:00", about: "Lights out. Speakers on. One album." },
+      { title: "Edit Night", when: "Tuesday 20:00", about: "Collaborative editing and color grading sessions." },
+      { title: "Shooting Day", when: "Last Sunday", about: "Capturing the club's latest projects in action." },
+      { title: "Media Screening", when: "Thursday 21:00", about: "Reviewing our latest films before release." },
     ],
     projects: [
-      { title: "Field Notes Vol. 02", year: "2025", type: "Film Series", blurb: "Twelve short documentaries from inside the lab." },
-      { title: "On Type", year: "2025", type: "Podcast", blurb: "Six-episode conversation series with type designers." },
-      { title: "Annual Print", year: "2024", type: "Zine", blurb: "120-page risograph annual covering the season." },
+      { title: "Annual Recap 2025", year: "2025", type: "Film", blurb: "Our annual showcase film of all society projects." },
+      { title: "Tech Talk Series", year: "2025", type: "Content", blurb: "A series of video interviews with our lead engineers." },
+      { title: "The Portfolio Book", year: "2024", type: "Print", blurb: "A physical book showcasing our members' work." },
     ],
     members: [
-      { name: "Leo Thompson", role: "Media Head", lead: true, year: "Final Year", bio: "Has stronger opinions about LUTs than is reasonable.", skills: ["Direction", "Color"] },
-      { name: "Sana Iqbal", role: "Photography Lead", year: "Third Year", bio: "Shoots medium format on principle.", skills: ["Editorial", "Documentary"] },
-      { name: "Rohan Das", role: "Video", year: "Third Year", bio: "DP and editor in one body, often.", skills: ["Cinematography", "Edit"] },
-      { name: "Avni Sharma", role: "Sound", year: "Second Year", bio: "Builds the lab's score, one foley at a time.", skills: ["Mix", "Score"] },
+      { name: "Abuzar Ghaffari", role: "Lead", lead: true, year: "Final Year", bio: "Directing the visual identity of the society.", skills: ["Direction", "Video"] },
+      { name: "Mansi", role: "Co-Lead", lead: true, year: "Third Year", bio: "Capturing the humans behind the code.", skills: ["Portraiture", "Edit"] },
+      { name: "Rohan Das", role: "Video Editor", year: "Third Year", bio: "The master of the club's highlight reels.", skills: ["Premiere", "After Effects"] },
+      { name: "Avni Sharma", role: "Creators", year: "Second Year", bio: "Focusing on social content and club promotion.", skills: ["Mobile Content", "Graphics"] },
     ],
   },
   {
     slug: "content",
     num: "05",
     name: "Content",
-    tagline: "Words that earn their pixels.",
+    tagline: "The keepers of the thesis.",
     mission:
-      "We are the lab's editorial conscience. We write the manifestos, the captions, and the long form that holds the season together.",
+      "We articulate the society's collective thought — crafting the written narratives and technical documentation that form our intellectual foundation.",
     brief:
-      "Content runs the lab's editorial pipeline — the season brief, the website's copy, the magazine. We commission writing from members across every team and edit it back to honesty.",
+      "Content is our editorial wing. We document our projects, interview members, and manage the society's blog and newsletter.",
     manifesto:
-      "Edit until it embarrasses you slightly. Then publish. Then revise.",
-    accent: "cream",
-    focusAreas: ["Long-form", "Editorial", "Research", "Copy", "Translation"],
-    stack: ["iA Writer", "Notion", "Are.na", "Hemingway", "Pen and paper"],
+      "Language is the ultimate protocol. We translate complex engineering into human stories that stick.",
+
+    accent: "cyan",
+    focusAreas: ["Technical Editorial", "The Society Thesis", "Strategic Comms", "Project Narrative", "Oral Histories"],
+    stack: ["iA Writer", "Notion", "Ghost", "Substack", "Markdown"],
     rituals: [
-      { title: "Read-around", when: "Monday 20:00", about: "We read one another's drafts out loud." },
-      { title: "Slush Day", when: "Friday 17:00", about: "We review every submission to the magazine." },
-      { title: "Library Hours", when: "Wednesday afternoon", about: "We physically go to the library. Together." },
+      { title: "Writer's Room", when: "Monday 20:00", about: "Peer review for blog posts and project logs." },
+      { title: "Slush Desk", when: "Friday 17:00", about: "Reviewing member submissions for the newsletter." },
+      { title: "Study Hall", when: "Wednesday afternoon", about: "Group research and drafting sessions." },
     ],
     projects: [
-      { title: "Annual Magazine 02", year: "2025", type: "Print", blurb: "180 pages. 24 contributors. One central thesis." },
-      { title: "Field Glossary", year: "2025", type: "Web", blurb: "A growing glossary of the lab's working vocabulary." },
-      { title: "Letters from the Lab", year: "2024", type: "Newsletter", blurb: "Bi-weekly dispatch to 2,800 readers." },
+      { title: "The Nexus Dispatch", year: "2025", type: "Newsletter", blurb: "Our monthly deep-dive into society projects." },
+      { title: "Member Profiles", year: "2025", type: "Editorial", blurb: "A series highlighting the builders of our club." },
+      { title: "Zine: Tech & Life", year: "2024", type: "Print", blurb: "An annual collection of student tech essays." },
     ],
     members: [
-      { name: "Anaya Joshi", role: "Content Head", lead: true, year: "Final Year", bio: "Editor of the season. Famously kind, famously strict.", skills: ["Editorial", "Long-form"] },
-      { name: "Vikram Singh", role: "Long-form", year: "Third Year", bio: "Writes 4,000-word essays on small things.", skills: ["Essays", "Criticism"] },
-      { name: "Riya Sen", role: "Editorial", year: "Second Year", bio: "Line-editor of choice across the lab.", skills: ["Copy", "Style"] },
-      { name: "Kabir Ahmed", role: "Research", year: "Second Year", bio: "Has a folder of citations larger than his hard drive can hold.", skills: ["Research", "Footnotes"] },
+      { name: "Afaaf Nayyar", role: "Lead", lead: true, year: "Final Year", bio: "Managing the society's blog and editorial tone.", skills: ["Editing", "Strategy"] },
+      { name: "Vikram Singh", role: "Co-Leads", lead: true, year: "Third Year", bio: "Specializing in deep-dives on emerging tech.", skills: ["Writing", "Research"] },
+      { name: "Riya Sen", role: "Editor", year: "Second Year", bio: "Keeping our project documentation sharp and clear.", skills: ["Copy", "Style"] },
+      { name: "Kabir Ahmed", role: "Researcher", year: "Second Year", bio: "Fact-checking and gathering resources for our leads.", skills: ["Research", "Sourcing"] },
     ],
   },
   {
     slug: "social-media",
     num: "06",
     name: "Social Media",
-    tagline: "The lab's public antenna.",
+    tagline: "The pulse of the collective.",
     mission:
-      "We translate the work into rhythm — posts, reels, threads — without losing the texture of what was actually made.",
+      "We orchestrate the society's digital presence — building the engagement frameworks that connect the collective to the wider world.",
     brief:
-      "Social runs the public channels and the community on Discord. We build the lab's posting calendar in lockstep with Content and Media, and we measure ourselves on quality of attention, not quantity of likes.",
+      "Social Media creates the engagement. We run the club's online channels and manage our Discord community of 500+ builders.",
     manifesto:
-      "We refuse to post for the algorithm. We post for the person who will discover the lab six months from now and stay.",
-    accent: "acid",
-    focusAreas: ["Strategy", "Reels", "Community", "Threads", "Analytics"],
-    stack: ["Figma", "CapCut", "Later", "Discord", "Plausible"],
+      "Connection is currency. We don't just post; we create the spaces where student builders want to exist.",
+
+    accent: "violet",
+    focusAreas: ["Engagement Engines", "Community Labs", "Short-Form Logic", "Discord Architecture", "Platform Strategy"],
+    stack: ["Figma", "CapCut", "Discord", "Instagram", "Buffer"],
     rituals: [
-      { title: "Calendar Sync", when: "Monday 19:00", about: "Weekly planning with Media and Content." },
-      { title: "Reel Lab", when: "Wednesday 18:00", about: "We cut three reels in two hours." },
-      { title: "Community Night", when: "Thursday 21:00", about: "Open hangout on the Discord voice channel." },
+      { title: "Content Sync", when: "Monday 19:00", about: "Planning the week's posts with Media." },
+      { title: "Shorts Lab", when: "Wednesday 18:00", about: "Collaborative reel and short creation session." },
+      { title: "Discord Hangout", when: "Thursday 21:00", about: "Weekly voice chat for the whole society." },
     ],
     projects: [
-      { title: "Field Reels", year: "2025", type: "Series", blurb: "Weekly short-form documentary cuts on Instagram." },
-      { title: "Discord Garden", year: "2025", type: "Community", blurb: "Curated channels for typography, ML, film and music." },
-      { title: "Behind the Lab", year: "2024", type: "Series", blurb: "Twelve-part backstage series across platforms." },
+      { title: "Project Spotlight", year: "2025", type: "Social", blurb: "Weekly highlights of what our teams are shipping." },
+      { title: "Nexus Discord v2", year: "2025", type: "Community", blurb: "A complete overhaul of our community hub." },
+      { title: "Student Dev Series", year: "2024", type: "Video", blurb: "Short-form career tips for student engineers." },
     ],
     members: [
-      { name: "Sia Solano", role: "Social Lead", lead: true, year: "Final Year", bio: "Runs the editorial calendar and the room.", skills: ["Strategy", "Direction"] },
-      { name: "Aryan Kapoor", role: "Strategy", year: "Third Year", bio: "Reads the analytics so the rest of us don't have to.", skills: ["Analytics", "Planning"] },
-      { name: "Maya Rahman", role: "Design", year: "Second Year", bio: "Owns the look and feel of every post.", skills: ["Design", "Motion"] },
-      { name: "Ishan Verma", role: "Community", year: "Second Year", bio: "Knows every regular in the Discord by name.", skills: ["Community", "Moderation"] },
+      { name: "Aruna Azam", role: "Lead", lead: true, year: "Final Year", bio: "Managing our community growth and presence.", skills: ["Community", "Strategy"] },
+      { name: "Zishan", role: "Co-Lead", lead: true, year: "Third Year", bio: "Turning club projects into viral stories.", skills: ["Growth", "Analytics"] },
+      { name: "Maya Rahman", role: "Community Design", year: "Second Year", bio: "Designing all graphics for our digital channels.", skills: ["Figma", "Branding"] },
+      { name: "Ishan Verma", role: "Discord Manager", year: "Second Year", bio: "Keeping the conversation alive in the Nexus Discord.", skills: ["Moderation", "Bot Setup"] },
+    ],
+  },
+  {
+    slug: "management",
+    num: "07",
+    name: "Management",
+    tagline: "The structural spine.",
+    mission:
+      "We maintain the society's organizational health — ensuring the logistical integrity and operational excellence of the collective.",
+    brief:
+      "Management takes care of the business side. We handle event coordination, membership records, and society rules.",
+    manifesto:
+      "Order allows for chaos. By mastering the grid of logistics, we free our members to create without friction.",
+
+    accent: "acid",
+    focusAreas: ["Event Architecture", "Logistical Systems", "Organizational Debt", "Protocol & Rules", "System Outreach"],
+    stack: ["Notion", "Calendar", "Docs", "Discord"],
+    rituals: [
+      { title: "Rules Committee", when: "Monday 09:00", about: "Weekly review of society policies." },
+      { title: "Event Planning", when: "Monthly", about: "Deep-dive planning for our flagship festivals." },
+    ],
+    projects: [
+      { title: "Membership Portal", year: "2025", type: "Operations", blurb: "Digital management system for club members." },
+      { title: "The Event Playbook", year: "2024", type: "Internal", blurb: "Standardizing how we run our society meetups." },
+    ],
+    members: [
+      { name: "Mohd Sami Waseem", role: "Lead", lead: true, year: "2nd Year", bio: "Ensuring the society runs smoothly every week.", skills: ["Mgmt", "Events"], links: [{ label: "Profile", href: "#" }] },
+      { name: "Mohd Ashraf Ansari", role: "Co-Lead", lead: true, year: "2nd Year", bio: "Keeping the society's history and archives intact.", skills: ["Records", "Admin"] },
+      { name: "Nisha Varma", role: "Coordinator", year: "Second Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"] },
+    ],
+  },
+  {
+    slug: "creative",
+    num: "08",
+    name: "Creative",
+    tagline: "The aesthetic vanguard.",
+    mission:
+      "We define the society's visual soul — exploring the experimental horizons of design and aesthetic identity.",
+    brief:
+      "Creative is our identity house. We design the visuals, posters, and physical spaces that make the society unique.",
+    manifesto:
+      "Design is an experiment with no end. We ship identity systems that challenge the status quo for student technical spaces.",
+
+    accent: "cyan",
+    focusAreas: ["Art Direction", "Dynamic Identity", "Physical Media", "Interface Theory", "Visual Systems"],
+    stack: ["Figma", "Illustrator", "Photoshop", "After Effects", "Blender"],
+    rituals: [
+      { title: "Design Crit", when: "Wednesday 18:00", about: "Members review and help each other's graphics." },
+      { title: "Poster Lab", when: "Friday 14:00", about: "Physical design hacking with Risograph." },
+    ],
+    projects: [
+      { title: "Nexus Brand v2", year: "2025", type: "Branding", blurb: "The new visual language for our club's next season." },
+      { title: "Digital Fest '24", year: "2024", type: "Event Design", blurb: "Full visual system for our flagship society event." },
+    ],
+    members: [
+      { name: "Namra Nida", role: "Lead", lead: true, year: "Final Year", bio: "Leading the aesthetic direction of our society.", skills: ["AD", "Typography"], links: [{ label: "Portfolio", href: "#" }] },
+      { name: "Mehar Qausain", role: "Co-Lead", lead: true, year: "Third Year", bio: "Specializing in spatial design and print systems.", skills: ["Design", "Print"] },
+      { name: "Siddharth Jha", role: "UX Designer", year: "Second Year", bio: "Building accessible and beautiful user experiences.", skills: ["UX", "Layout"] },
+    ],
+  },
+  {
+    slug: "corporate",
+    num: "09",
+    name: "Partnerships",
+    tagline: "The external interface.",
+    mission:
+      "We architect the society's industrial bridges — connecting our collective of student builders to the global tech ecosystem.",
+    brief:
+      "Partnerships is our external face. We work with tech companies to bring opportunities and sponsorships to the society.",
+    manifesto:
+      "Opportunities are built, not found. We create the pipelines that take our members from the club to the frontier of their careers.",
+
+    accent: "violet",
+    focusAreas: ["Industry Pipeline", "Sponsorship Logic", "Strategic Alliances", "Career Systems", "External PR"],
+    stack: ["CRM", "LinkedIn", "Keynote", "Mailchimp"],
+    rituals: [
+      { title: "Partner Sync", when: "Tuesday 11:00", about: "Reviewing outreach to potential tech sponsors." },
+      { title: "Career Workshop", when: "Quarterly", about: "Connecting members with technical recruiters." },
+    ],
+    projects: [
+      { title: "Innovate Program '25", year: "2025", type: "Initiative", blurb: "Our program for student startup mentorship." },
+      { title: "Sponsor Hub", year: "2024", type: "Platform", blurb: "Connecting club members with local tech companies." },
+    ],
+    members: [
+      { name: "Tanzeel", role: "Lead", lead: true, year: "Final Year", bio: "Connecting our club with the global tech scene.", skills: ["Relations", "Sales"], links: [{ label: "LinkedIn", href: "#" }] },
+      { name: "Neil Sethi", role: "Co-Lead", lead: true, year: "Third Year", bio: "Driving the society's public image and reach.", skills: ["PR", "Strategy"] },
+      { name: "Aria Gupta", role: "Sponsor Manager", year: "Second Year", bio: "Managing our network of technical partners.", skills: ["Networking", "Sales"] },
     ],
   },
 ];

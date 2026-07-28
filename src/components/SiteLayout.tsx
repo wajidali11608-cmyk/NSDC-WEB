@@ -150,7 +150,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               className="hidden lg:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan text-ink font-mono text-[11px] uppercase tracking-[0.18em] border border-transparent hover:bg-ink hover:text-cyan hover:border-cyan transition-all duration-300"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-ink group-hover:bg-cyan animate-pulse-dot" />
-              Apply 25/26
+              Apply 26/27
             </Link>
             <button
               aria-label="Toggle menu"

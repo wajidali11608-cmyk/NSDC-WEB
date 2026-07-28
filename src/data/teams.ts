@@ -34,6 +34,12 @@ export type Team = {
 };
 
 import wajidImg from "@/assets/wajid.jpg";
+import AmaanImg from "@/assets/Amaan_Malik.jpg";
+import FarhanImg from "@/assets/Farhan_Arshad.jpg";
+import SafaImg from "@/assets/Safa_Khan.jpg";
+import MariyaImg from "@/assets/Mariya.jpg";
+import LaibaImg from "@/assets/Laiba.jpeg"
+import AshrafImg from "@/assets/Ashraf.jpeg"
 
 export const TEAMS: Team[] = [
 
@@ -64,11 +70,11 @@ export const TEAMS: Team[] = [
       { title: "Networking Nights", year: "2024", type: "Event", blurb: "Connecting student builders with industry mentors." },
     ],
     members: [
-      { name: "Mohammad Arsalan", role: "Chair", year: "Final Year", bio: "Directing the collective's vision and seasonal strategy.", skills: ["Strategy", "Leadership"], links: [{ label: "Profile", href: "#" }] },
-      { name: "Mohammad Adnan", role: "Co-Chair", year: "Final Year", bio: "Managing collaborative operations across all society divisions.", skills: ["Management", "Operations"] },
-      { name: "Zainab Manzoor", role: "Vice Chair", year: "Third Year", bio: "Ensuring excellence in our weekly syncs and member engagement.", skills: ["Ops", "Comms"] },
-      { name: "Laiba Razi", role: "Secretary", year: "Second Year", bio: "Handling documentation and internal communications.", skills: ["Writing", "Admin"] },
-      { name: "Adil Ali", role: "Treasurer", year: "Second Year", bio: "Managing the society's financial health and resources.", skills: ["Finance", "Logistics"] },
+      { name: "Mohammad Arsalan", role: "Chair", year: "4th Year", bio: "Directing the collective's vision and seasonal strategy.", skills: ["Strategy", "Leadership"], links: [{ label: "Profile", href: "#" }] },
+      { name: "Mohammad Adnan", role: "Co-Chair", year: "4th Year", bio: "Managing collaborative operations across all society divisions.", skills: ["Management", "Operations"] },
+      { name: "Zainab Manzoor", role: "Vice Chair", year: "3rd Year", bio: "Ensuring excellence in our weekly syncs and member engagement.", skills: ["Ops", "Comms"] },
+      { name: "Laiba Razi", role: "Secretary", year: "2nd Year", bio: "Handling documentation and internal communications.", skills: ["Writing", "Admin"], img: LaibaImg },
+      { name: "Adil Ali", role: "Treasurer", year: "2nd Year", bio: "Managing the society's financial health and resources.", skills: ["Finance", "Logistics"] },
     ],
   },
   {
@@ -109,11 +115,12 @@ export const TEAMS: Team[] = [
         links: [{ label: "GitHub", href: "#" }]
       },
 
-      { name: "Devansh Roy", role: "Co-Lead & Fullstack Engineer", lead: true, year: "Third Year", bio: "Passionate about building robust backend systems.", skills: ["Node", "SQL", "APIs"]},
-      { name: "Amaan Malik", role: "Frontend Engineer", year: "4th Year", bio: "Bringing designs to life with fluid motion and CSS.", skills: ["React", "Motion", "CSS"] },
-      { name: "Safa Khan", role: "Software Engineer", year: "2nd Year", bio: "Building the core logic of our internal tools.", skills: ["JS", "Web APIs"] },
-      { name: "Farhan Arshad", role: "DevOps & Cloud", year: "2nd Year", bio: "Ensuring our projects are always live and performant.", skills: ["Deployment", "CI/CD"] },
+      { name: "Devansh Roy", role: "Co-Lead & Fullstack Engineer", lead: true, year: "Third Year", bio: "Passionate about building robust backend systems.", skills: ["Node", "SQL", "APIs"] },
+      { name: "Amaan Malik", role: "Frontend Engineer", year: "4th Year", bio: "Bringing designs to life with fluid motion and CSS.", skills: ["React", "Motion", "CSS"], img: AmaanImg },
+      { name: "Safa Khan", role: "Software Engineer", year: "2nd Year", bio: "Building the core logic of our internal tools.", skills: ["JS", "Web APIs"], img: SafaImg },
+      { name: "Farhan Arshad", role: "DevOps & Cloud", year: "2nd Year", bio: "Ensuring our projects are always live and performant.", skills: ["Deployment", "CI/CD"], img: FarhanImg },
       { name: "Warda Amir", role: "DevOps & Cloud", year: "4th Year", bio: "Ensuring our projects are always live and performant.", skills: ["Deployment", "CI/CD"] },
+      { name: "Mariya", role: "DevOps & Cloud", year: "2nd Year", bio: "Ensuring our projects are always live and performant.", skills: ["Deployment", "CI/CD"], img: MariyaImg },
     ],
   },
   {
@@ -145,8 +152,8 @@ export const TEAMS: Team[] = [
     members: [
       { name: "Mohammad Umar", role: "Lead", lead: true, year: "4th Year", bio: "Building the AI infrastructure for our society.", skills: ["ML", "Python", "NLP"] },
       { name: "Afaaf Nayyar", role: "Co-Lead", lead: true, year: "2nd Year", bio: "Exploring the limits of generative AI models.", skills: ["Deep Learning", "Models"] },
-      { name: "Karan Mehta", role: "Data Analyst", year: "Third Year", bio: "Turning raw student data into actionable insights.", skills: ["SQL", "Stats"] },
-      { name: "Nikita Bose", role: "Visualization", year: "Second Year", bio: "Specializing in interactive data dashboards.", skills: ["D3", "Viz"] },
+      { name: "Yussra Khan", role: "Data Analyst", year: "2nd Year", bio: "Turning raw student data into actionable insights.", skills: ["SQL", "Stats"] },
+      { name: "Alina Mariyam", role: "Visualization", year: "2nd Year", bio: "Specializing in interactive data dashboards.", skills: ["D3", "Viz"] },
     ],
   },
   {
@@ -175,10 +182,10 @@ export const TEAMS: Team[] = [
       { title: "The Portfolio Book", year: "2024", type: "Print", blurb: "A physical book showcasing our members' work." },
     ],
     members: [
-      { name: "Abuzar Ghaffari", role: "Lead", lead: true, year: "Final Year", bio: "Directing the visual identity of the society.", skills: ["Direction", "Video"] },
-      { name: "Mansi", role: "Co-Lead", lead: true, year: "Third Year", bio: "Capturing the humans behind the code.", skills: ["Portraiture", "Edit"] },
-      { name: "Rohan Das", role: "Video Editor", year: "Third Year", bio: "The master of the club's highlight reels.", skills: ["Premiere", "After Effects"] },
-      { name: "Avni Sharma", role: "Creators", year: "Second Year", bio: "Focusing on social content and club promotion.", skills: ["Mobile Content", "Graphics"] },
+      { name: "Abuzar Ghaffari", role: "Lead", lead: true, year: "3rd Year", bio: "Directing the visual identity of the society.", skills: ["Direction", "Video"] },
+      { name: "Mansi", role: "Co-Lead", lead: true, year: "3rd Year", bio: "Capturing the humans behind the code.", skills: ["Portraiture", "Edit"] },
+      { name: "Myel Khan", role: "Video Editor", year: "2nd Year", bio: "The master of the club's highlight reels.", skills: ["Premiere", "After Effects"] },
+      { name: "Rameesha", role: "Creators", year: "2nd Year", bio: "Focusing on social content and club promotion.", skills: ["Mobile Content", "Graphics"] },
     ],
   },
   {
@@ -207,10 +214,10 @@ export const TEAMS: Team[] = [
       { title: "Zine: Tech & Life", year: "2024", type: "Print", blurb: "An annual collection of student tech essays." },
     ],
     members: [
-      { name: "Afaaf Nayyar", role: "Lead", lead: true, year: "Final Year", bio: "Managing the society's blog and editorial tone.", skills: ["Editing", "Strategy"] },
-      { name: "Vikram Singh", role: "Co-Leads", lead: true, year: "Third Year", bio: "Specializing in deep-dives on emerging tech.", skills: ["Writing", "Research"] },
-      { name: "Riya Sen", role: "Editor", year: "Second Year", bio: "Keeping our project documentation sharp and clear.", skills: ["Copy", "Style"] },
-      { name: "Kabir Ahmed", role: "Researcher", year: "Second Year", bio: "Fact-checking and gathering resources for our leads.", skills: ["Research", "Sourcing"] },
+      { name: "Afaaf Nayyar", role: "Lead", lead: true, year: "2nd Year", bio: "Managing the society's blog and editorial tone.", skills: ["Editing", "Strategy"] },
+      { name: "Vikram Singh", role: "Co-Leads", lead: true, year: "3rd Year", bio: "Specializing in deep-dives on emerging tech.", skills: ["Writing", "Research"] },
+      { name: "Warda Amir", role: "Editor", year: "4th Year", bio: "Keeping our project documentation sharp and clear.", skills: ["Copy", "Style"] },
+      { name: "Imran Ahmed", role: "Researcher", year: "4th Year", bio: "Fact-checking and gathering resources for our leads.", skills: ["Research", "Sourcing"] },
     ],
   },
   {
@@ -269,8 +276,8 @@ export const TEAMS: Team[] = [
       { title: "The Event Playbook", year: "2024", type: "Internal", blurb: "Standardizing how we run our society meetups." },
     ],
     members: [
-      { name: "Mohd Sami Waseem", role: "Lead", lead: true, year: "2nd Year", bio: "Ensuring the society runs smoothly every week.", skills: ["Mgmt", "Events"], links: [{ label: "Profile", href: "#" }] },
-      { name: "Mohd Ashraf Ansari", role: "Co-Lead", lead: true, year: "2nd Year", bio: "Keeping the society's history and archives intact.", skills: ["Records", "Admin"] },
+      { name: "Mohd Sami Waseem", role: "Lead", lead: true, year: "2nd Year", bio: "Ensuring the society runs smoothly every week.", skills: ["Mgmt", "Events"] },
+      { name: "Mohd Ashraf Ansari", role: "Co-Lead", lead: true, year: "2nd Year", bio: "Keeping the society's history and archives intact.", skills: ["Records", "Admin"], img: AshrafImg },
       { name: "Nisha Varma", role: "Coordinator", year: "Second Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"] },
     ],
   },

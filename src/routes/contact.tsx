@@ -369,13 +369,13 @@ function ContactPage() {
             </h2>
           </div>
           <p className="font-serif text-cream/70 max-w-xs leading-relaxed">
-            Six channels. We broadcast almost daily — you can mute four and
-            still get the work.
-          </p>
-        </div>
+            Five channels. We broadcast almost daily — you can mute three and
+          still get the work.
+        </p>
+      </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-line">
-          {["Instagram", "Twitter", "LinkedIn", "GitHub", "Discord", "YouTube"].map((s, i) => (
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-px bg-line">
+        {["Instagram", "Twitter", "LinkedIn", "GitHub", "Discord"].map((s, i) => (
             <a
               key={s}
               href="#"

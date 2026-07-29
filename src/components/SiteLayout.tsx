@@ -230,7 +230,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/40 mb-5">Signals</div>
             <ul className="space-y-3">
 
-              {["Instagram", "GitHub", "LinkedIn", "Discord", "YouTube"].map((s) => (
+              {["Instagram", "GitHub", "LinkedIn", "Discord"].map((s) => (
                 <li key={s}>
                   <a href="#" className="link-underline font-serif text-lg">{s} ↗</a>
                 </li>

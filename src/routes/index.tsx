@@ -7,7 +7,7 @@ import { useState, useEffect, useRef } from "react";
 export const Route = createFileRoute("/")(  {
   head: () => ({
     meta: [
-      { title: "NSDC-JHSC — Student-led Society" },
+      { title: "NSDC-JHSC" },
       {
         name: "description",
         content:

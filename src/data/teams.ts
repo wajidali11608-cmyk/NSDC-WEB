@@ -62,6 +62,16 @@ import HibaImg from "@/assets/Hiba.jpeg"
 import AishaImg from "@/assets/Aisha.jpg"
 import AdilImg from "@/assets/Adil.jpeg"
 import KulsoomImg from "@/assets/Kulsoom.jpeg"
+import TakrimImg from "@/assets/Takrim.jpg"
+import NamraImg from "@/assets/Namra.jpg"
+import KulsumImg from "@/assets/Kulsum.jpg"
+import ManshaImg from "@/assets/Mansha.jpg"
+import MeharImg from "@/assets/Mehar.jpg"
+import AlizaImg from "@/assets/Aliza.jpg"
+import AliImg from "@/assets/Ali_Raza.jpg"
+import WafaImg from "@/assets/Wafa.jpg"
+import SamairaImg from "@/assets/Samaira.jpg"
+
 export const TEAMS: Team[] = [
 
   {
@@ -295,6 +305,7 @@ export const TEAMS: Team[] = [
     projects: [
       { title: "Membership Portal", year: "2025", type: "Operations", blurb: "Digital management system for club members." },
       { title: "The Event Playbook", year: "2024", type: "Internal", blurb: "Standardizing how we run our society meetups." },
+      { title: "Society Handbook", year: "2024", type: "Internal", blurb: "Standardizing how we run our society meetups." },
     ],
     members: [
       { name: "Mohd Sami Waseem", role: "Lead", lead: true, year: "2nd Year", bio: "Ensuring the society runs smoothly every week.", skills: ["Mgmt", "Events"], img: SamiImg },
@@ -302,6 +313,7 @@ export const TEAMS: Team[] = [
       { name: "Ayaz Afzal", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: AyazImg },
       { name: "Hiba", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: HibaImg },
       { name: "Aisha Khan", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: AishaImg },
+      { name: "Takrim", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: TakrimImg },
     ],
   },
   {
@@ -326,11 +338,17 @@ export const TEAMS: Team[] = [
     projects: [
       { title: "Nexus Brand v2", year: "2025", type: "Branding", blurb: "The new visual language for our club's next season." },
       { title: "Digital Fest '24", year: "2024", type: "Event Design", blurb: "Full visual system for our flagship society event." },
+      { title: "Society Handbook", year: "2024", type: "Internal", blurb: "Standardizing how we run our society meetups." },
     ],
     members: [
-      { name: "Namra Nida", role: "Lead", lead: true, year: "Final Year", bio: "Leading the aesthetic direction of our society.", skills: ["AD", "Typography"], links: [{ label: "Portfolio", href: "#" }] },
-      { name: "Mehar Qausain", role: "Co-Lead", lead: true, year: "Third Year", bio: "Specializing in spatial design and print systems.", skills: ["Design", "Print"] },
-      { name: "Siddharth Jha", role: "UX Designer", year: "Second Year", bio: "Building accessible and beautiful user experiences.", skills: ["UX", "Layout"] },
+      { name: "Namra Nida", role: "Lead", lead: true, year: "3rd Year", bio: "Leading the aesthetic direction of our society.", skills: ["AD", "Typography"], links: [{ label: "Portfolio", href: "#" }], img: NamraImg },
+      { name: "Mehar Qausain", role: "Co-Lead", lead: true, year: "2nd Year", bio: "Specializing in spatial design and print systems.", skills: ["Design", "Print"], img: MeharImg },
+      { name: "Kulsum Fatma", role: "UX Designer", year: "2nd Year", bio: "Building accessible and beautiful user experiences.", skills: ["UX", "Layout"], img: KulsumImg },
+      { name: "Mansha", role: "UX Designer", year: "2nd Year", bio: "Building accessible and beautiful user experiences.", skills: ["UX", "Layout"], img: ManshaImg },
+      { name: "Samaira", role: "UX Designer", year: "2nd Year", bio: "Building accessible and beautiful user experiences.", skills: ["UX", "Layout"], img: SamairaImg },
+      { name: "Aliza", role: "UX Designer", year: "2nd Year", bio: "Building accessible and beautiful user experiences.", skills: ["UX", "Layout"], img: AlizaImg },
+      { name: "Wafa Fatima", role: "UX Designer", year: "2nd Year", bio: "Building accessible and beautiful user experiences.", skills: ["UX", "Layout"], img: WafaImg },
+      { name: "Ali Raza", role: "UX Designer", year: "2nd Year", bio: "Building accessible and beautiful user experiences.", skills: ["UX", "Layout"], img: AliImg },
     ],
   },
   {

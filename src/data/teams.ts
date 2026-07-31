@@ -375,6 +375,7 @@ export const TEAMS: Team[] = [
       { title: "Innovate Program '25", year: "2025", type: "Initiative", blurb: "Our program for student startup mentorship." },
       { title: "Sponsor Hub", year: "2024", type: "Platform", blurb: "Connecting club members with local tech companies." },
       { title: "Sponsor Hub", year: "2024", type: "Platform", blurb: "Connecting club members with local tech companies." },
+
     ],
     members: [
       { name: "Tanzeel Nasim", role: "Lead", lead: true, year: "2nd Year", bio: "Connecting our club with the global tech scene.", skills: ["Relations", "Sales"], links: [{ label: "LinkedIn", href: "#" }], img: TanzeelImg },

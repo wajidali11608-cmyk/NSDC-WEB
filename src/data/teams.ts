@@ -40,6 +40,13 @@ import SafaImg from "@/assets/Safa_Khan.jpg";
 import MariyaImg from "@/assets/Mariya.jpg";
 import LaibaImg from "@/assets/Laiba.jpeg"
 import AshrafImg from "@/assets/Ashraf.jpeg"
+import ArunaImg from "@/assets/Aruna.jpg"
+import ZishanImg from "@/assets/Zishan.png"
+import ArsalanImg from "@/assets/Arsalan.png"
+import ZainabImg from "@/assets/Zainab.jpg"
+import AdnanImg from "@/assets/Adnan.jpg"
+import WardaImg from "@/assets/Warda.jpg"
+
 
 export const TEAMS: Team[] = [
 
@@ -70,9 +77,9 @@ export const TEAMS: Team[] = [
       { title: "Networking Nights", year: "2024", type: "Event", blurb: "Connecting student builders with industry mentors." },
     ],
     members: [
-      { name: "Mohammad Arsalan", role: "Chair", year: "4th Year", bio: "Directing the collective's vision and seasonal strategy.", skills: ["Strategy", "Leadership"], links: [{ label: "Profile", href: "#" }] },
-      { name: "Mohammad Adnan", role: "Co-Chair", year: "4th Year", bio: "Managing collaborative operations across all society divisions.", skills: ["Management", "Operations"] },
-      { name: "Zainab Manzoor", role: "Vice Chair", year: "3rd Year", bio: "Ensuring excellence in our weekly syncs and member engagement.", skills: ["Ops", "Comms"] },
+      { name: "Mohammad Arsalan", role: "Chair", year: "4th Year", bio: "Directing the collective's vision and seasonal strategy.", skills: ["Strategy", "Leadership"], links: [{ label: "Profile", href: "#" }], img: ArsalanImg },
+      { name: "Mohammad Adnan", role: "Co-Chair", year: "4th Year", bio: "Managing collaborative operations across all society divisions.", skills: ["Management", "Operations"], img: AdnanImg },
+      { name: "Zainab Manzoor", role: "Vice Chair", year: "3rd Year", bio: "Ensuring excellence in our weekly syncs and member engagement.", skills: ["Ops", "Comms"], img: ZainabImg },
       { name: "Laiba Razi", role: "Secretary", year: "2nd Year", bio: "Handling documentation and internal communications.", skills: ["Writing", "Admin"], img: LaibaImg },
       { name: "Adil Ali", role: "Treasurer", year: "2nd Year", bio: "Managing the society's financial health and resources.", skills: ["Finance", "Logistics"] },
     ],
@@ -119,7 +126,7 @@ export const TEAMS: Team[] = [
       { name: "Amaan Malik", role: "Frontend Engineer", year: "4th Year", bio: "Bringing designs to life with fluid motion and CSS.", skills: ["React", "Motion", "CSS"], img: AmaanImg },
       { name: "Safa Khan", role: "Software Engineer", year: "2nd Year", bio: "Building the core logic of our internal tools.", skills: ["JS", "Web APIs"], img: SafaImg },
       { name: "Farhan Arshad", role: "DevOps & Cloud", year: "2nd Year", bio: "Ensuring our projects are always live and performant.", skills: ["Deployment", "CI/CD"], img: FarhanImg },
-      { name: "Warda Amir", role: "DevOps & Cloud", year: "4th Year", bio: "Ensuring our projects are always live and performant.", skills: ["Deployment", "CI/CD"] },
+      { name: "Warda Amir", role: "DevOps & Cloud", year: "4th Year", bio: "Ensuring our projects are always live and performant.", skills: ["Deployment", "CI/CD"], img: WardaImg },
       { name: "Mariya", role: "DevOps & Cloud", year: "2nd Year", bio: "Ensuring our projects are always live and performant.", skills: ["Deployment", "CI/CD"], img: MariyaImg },
     ],
   },
@@ -246,10 +253,10 @@ export const TEAMS: Team[] = [
       { title: "Student Dev Series", year: "2024", type: "Video", blurb: "Short-form career tips for student engineers." },
     ],
     members: [
-      { name: "Aruna Azam", role: "Lead", lead: true, year: "Final Year", bio: "Managing our community growth and presence.", skills: ["Community", "Strategy"] },
-      { name: "Zishan", role: "Co-Lead", lead: true, year: "Third Year", bio: "Turning club projects into viral stories.", skills: ["Growth", "Analytics"] },
-      { name: "Maya Rahman", role: "Community Design", year: "Second Year", bio: "Designing all graphics for our digital channels.", skills: ["Figma", "Branding"] },
-      { name: "Ishan Verma", role: "Discord Manager", year: "Second Year", bio: "Keeping the conversation alive in the Nexus Discord.", skills: ["Moderation", "Bot Setup"] },
+      { name: "Aruna Azam", role: "Lead", lead: true, year: "3rd Year", bio: "Managing our community growth and presence.", skills: ["Community", "Strategy"], img: ArunaImg },
+      { name: "Zishan", role: "Co-Lead", lead: true, year: "3rd Year", bio: "Turning club projects into viral stories.", skills: ["Growth", "Analytics"], img: ZishanImg },
+      { name: "Maya Rahman", role: "Community Design", year: "2nd Year", bio: "Designing all graphics for our digital channels.", skills: ["Figma", "Branding"] },
+      { name: "Ishan Verma", role: "Discord Manager", year: "2nd Year", bio: "Keeping the conversation alive in the Nexus Discord.", skills: ["Moderation", "Bot Setup"] },
     ],
   },
   {

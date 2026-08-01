@@ -181,14 +181,53 @@ function CustomSelect({
   );
 }
 
+// REPLACE THIS with your deployed Google Apps Script URL (see google_sheets_setup.md)
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx0RotdSVjeyw0LrWfizqv_G41kwonNKFopTYFETfktZYj0xpYdXdCLxTwa1IG5BG9v/exec";
+
 function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const [intent, setIntent] = useState("Apply 26/27");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [division, setDivision] = useState("");
   const [year, setYear] = useState("");
 
   const applyTeams = TEAMS.filter(t => t.slug !== "core").map(t => t.name);
   const years = ["First Year", "Second Year", "Third Year", "Final Year"];
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setSending(true);
+
+    const payload = {
+      name,
+      email,
+      intent,
+      division: intent === "Apply 26/27" ? division : "",
+      year: intent === "Apply 26/27" ? year : "",
+      message,
+    };
+
+    try {
+      const res = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      // no-cors always returns opaque response, so we trust it went through
+      setSubmitted(true);
+    } catch (err) {
+      setError("Transmission failed. Check your connection and retry.");
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <SiteLayout>
@@ -247,10 +286,7 @@ function ContactPage() {
       {/* FORM + MAP */}
       <section className="grid grid-cols-1 lg:grid-cols-2">
         <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSubmitted(true);
-          }}
+          onSubmit={handleSubmit}
           className="px-6 lg:px-12 py-16 lg:py-24 border-b lg:border-b-0 lg:border-r hairline-strong"
         >
           <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50 mb-3">
@@ -269,6 +305,7 @@ function ContactPage() {
                   type="button"
                   key={opt}
                   onClick={() => setIntent(opt)}
+                  disabled={sending || submitted}
                   className={`px-4 py-2 rounded-full font-mono text-[10px] uppercase tracking-[0.2em] border hairline-strong transition-colors ${intent === opt ? "bg-cyan text-ink border-cyan" : "hover:bg-cream/5"
                     }`}
                 >
@@ -280,10 +317,26 @@ function ContactPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <Field n="1.1" label="Identity">
-              <input required type="text" placeholder="Your name" className={inputCls} />
+              <input
+                required
+                type="text"
+                placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                disabled={sending || submitted}
+                className={inputCls}
+              />
             </Field>
             <Field n="1.2" label="Uplink">
-              <input required type="email" placeholder="you@domain.io" className={inputCls} />
+              <input
+                required
+                type="email"
+                placeholder="you@domain.io"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={sending || submitted}
+                className={inputCls}
+              />
             </Field>
           </div>
 
@@ -314,19 +367,55 @@ function ContactPage() {
                 required
                 rows={5}
                 placeholder="A few honest sentences about what you want to make with us."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                disabled={sending || submitted}
                 className={inputCls + " resize-none"}
               />
             </Field>
           </div>
 
+          {/* Error message */}
+          {error && (
+            <div className="mb-6 px-4 py-3 rounded-lg border border-red-500/40 bg-red-500/10 font-mono text-[11px] text-red-400 flex items-center gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+              {error}
+            </div>
+          )}
+
           <button
             type="submit"
-            disabled={submitted}
+            disabled={sending || submitted}
             className="group inline-flex items-center gap-3 px-7 py-4 rounded-full bg-cyan text-ink font-mono text-[11px] uppercase tracking-[0.18em] hover:bg-cream transition-colors disabled:opacity-80"
           >
-            {submitted ? "Uplink established ✓" : "Commit payload"}
-            <span className="group-hover:translate-x-1 transition-transform">→</span>
+            {submitted ? (
+              "Uplink established ✓"
+            ) : sending ? (
+              <>
+                <span className="inline-block w-3 h-3 border-2 border-ink/30 border-t-ink rounded-full animate-spin" />
+                Transmitting...
+              </>
+            ) : (
+              "Commit payload"
+            )}
+            {!sending && !submitted && (
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            )}
           </button>
+
+          {/* Success confirmation */}
+          {submitted && (
+            <div className="mt-8 p-6 rounded-lg border border-cyan/20 bg-cyan/5 animate-rise">
+              <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cyan mb-2 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse-dot" />
+                Signal received
+              </div>
+              <p className="font-serif text-cream/80 text-sm leading-relaxed">
+                Your transmission has been logged. We'll review it and get back to you
+                at <span className="text-cyan">{email}</span> within 7 days.
+              </p>
+            </div>
+          )}
         </form>
 
         {/* MAP */}
@@ -369,16 +458,23 @@ function ContactPage() {
             </h2>
           </div>
           <p className="font-serif text-cream/70 max-w-xs leading-relaxed">
-            Five channels. We broadcast almost daily — you can mute three and
-          still get the work.
-        </p>
-      </div>
+            Four channels. We broadcast almost daily — you can mute three and
+            still get the work.
+          </p>
+        </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-px bg-line">
-        {["Instagram", "Twitter", "LinkedIn", "GitHub", "Discord"].map((s, i) => (
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-px bg-line">
+          {[
+            { name: "Instagram", href: "https://www.instagram.com/nsdc.jhsc" },
+            { name: "LinkedIn", href: "https://www.linkedin.com/company/nsdc-jamia-hamdard/" },
+            { name: "GitHub", href: "#" },
+            { name: "Discord", href: "#" },
+          ].map((s, i) => (
             <a
-              key={s}
-              href="#"
+              key={s.name}
+              href={s.href}
+              target={s.href !== "#" ? "_blank" : undefined}
+              rel={s.href !== "#" ? "noopener noreferrer" : undefined}
               className="group bg-ink aspect-square flex flex-col justify-between p-5 lg:p-6 hover:bg-ink-2 transition-colors relative overflow-hidden"
             >
               <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/40">
@@ -386,7 +482,7 @@ function ContactPage() {
               </span>
               <div>
                 <div className="font-serif text-2xl lg:text-3xl tracking-tighter leading-none group-hover:text-cyan transition-colors">
-                  {s}
+                  {s.name}
                 </div>
                 <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50">
                   @nsdc.jhsc <span className="ml-2 inline-block group-hover:translate-x-1 transition-transform">↗</span>

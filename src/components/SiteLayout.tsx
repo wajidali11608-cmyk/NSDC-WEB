@@ -230,9 +230,21 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/40 mb-5">Signals</div>
             <ul className="space-y-3">
 
-              {["Instagram", "GitHub", "LinkedIn", "Discord"].map((s) => (
-                <li key={s}>
-                  <a href="#" className="link-underline font-serif text-lg">{s} ↗</a>
+              {[
+                { name: "Instagram", href: "https://www.instagram.com/nsdc.jhsc" },
+                { name: "GitHub", href: "#" },
+                { name: "LinkedIn", href: "https://www.linkedin.com/company/nsdc-jamia-hamdard/" },
+                { name: "Discord", href: "#" },
+              ].map((s) => (
+                <li key={s.name}>
+                  <a
+                    href={s.href}
+                    target={s.href !== "#" ? "_blank" : undefined}
+                    rel={s.href !== "#" ? "noopener noreferrer" : undefined}
+                    className="link-underline font-serif text-lg"
+                  >
+                    {s.name} ↗
+                  </a>
                 </li>
               ))}
             </ul>

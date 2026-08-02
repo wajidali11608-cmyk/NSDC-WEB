@@ -73,6 +73,10 @@ import WafaImg from "@/assets/Wafa.jpg"
 import SamairaImg from "@/assets/Samaira.jpg"
 import TanzeelImg from "@/assets/Tanzeel.jpg"
 import IbrahimImg from "@/assets/Ibrahim.jpg"
+import ShababImg from "@/assets/Shabab.png"
+import UmairImg from "@/assets/Umair.jpg"
+import KhateebImg from "@/assets/Khateeb.jpg"
+
 export const TEAMS: Team[] = [
 
   {
@@ -309,13 +313,16 @@ export const TEAMS: Team[] = [
       { title: "Society Handbook", year: "2024", type: "Internal", blurb: "Standardizing how we run our society meetups." },
     ],
     members: [
+      { name: "Shabab Ahmad", role: "Lead", lead: true, year: "4th Year", bio: "Ensuring the society runs smoothly every week.", skills: ["Mgmt", "Events"], img: ShababImg },
       { name: "Mohd Sami Waseem", role: "Lead", lead: true, year: "2nd Year", bio: "Ensuring the society runs smoothly every week.", skills: ["Mgmt", "Events"], img: SamiImg },
       { name: "Mohd Ashraf Ansari", role: "Co-Lead", lead: true, year: "2nd Year", bio: "Keeping the society's history and archives intact.", skills: ["Records", "Admin"], img: AshrafImg },
       { name: "Ayaz Afzal", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: AyazImg },
       { name: "Hiba", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: HibaImg },
       { name: "Aisha Khan", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: AishaImg },
       { name: "Takrim", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: TakrimImg },
-    ],
+      { name: "Umair Mallick", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: UmairImg },
+      { name: "Baber Khateeb", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: KhateebImg },
+      ],
   },
   {
     slug: "creative",

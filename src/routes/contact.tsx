@@ -262,7 +262,7 @@ function ContactPage() {
       {/* INFO STRIP */}
       <section className="grid grid-cols-1 lg:grid-cols-3 border-y hairline-strong">
         {[
-          { n: "01", label: "Email", value: "lab@nsdc-jhsc.in", sub: "All inquiries · 7-day reply" },
+          { n: "01", label: "Email", value: "nsdcjhsc@gmail.com", sub: "All inquiries · 7-day reply" },
           { n: "02", label: "HQ", value: "Jamia Hamdard University", sub: "New Delhi, India" },
           { n: "03", label: "Hours", value: "Mon — Fri", sub: "10:00 → 18:00 IST" },
         ].map((c, i) => (

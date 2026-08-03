@@ -243,7 +243,7 @@ function ContactPage() {
               <span className="opacity-40">/</span>
               <span>Mean reply time · 3.2 days</span>
             </div>
-            <h1 className="font-serif text-[15vw] lg:text-[11vw] leading-[0.88] tracking-tighter">
+            <h1 className="font-serif text-[13vw] sm:text-[15vw] lg:text-[11vw] leading-[0.88] tracking-tighter">
               Initialize
               <br />
               <span className="serif-italic gradient-text">uplink.</span>

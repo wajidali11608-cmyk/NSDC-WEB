@@ -161,13 +161,13 @@ function Index() {
 
           {/* Hero Title — elegant staggered reveal */}
           <h1 className="font-serif leading-[0.88] tracking-[-0.04em]">
-            <span className="hero-line block text-[18vw] lg:text-[12vw] text-cream/90">
+            <span className="hero-line block text-[12vw] sm:text-[14vw] lg:text-[12vw] text-cream/90">
               Architecting
             </span>
-            <span className="hero-line block text-[20vw] lg:text-[13.5vw]">
+            <span className="hero-line block text-[13vw] sm:text-[16vw] lg:text-[13.5vw]">
               <span className="serif-italic hero-gradient-text">the future</span>
             </span>
-            <span className="hero-line block text-[16vw] lg:text-[10.5vw] text-cream/35">
+            <span className="hero-line block text-[11vw] sm:text-[13vw] lg:text-[10.5vw] text-cream/35">
               in silence.
             </span>
           </h1>
@@ -378,7 +378,7 @@ function Index() {
           <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50 mb-6">
             ¶ Open Call · Session 26/27
           </div>
-          <h2 className="font-serif text-[14vw] lg:text-[8vw] leading-[0.9] tracking-tighter">
+          <h2 className="font-serif text-[11vw] sm:text-[12vw] lg:text-[8vw] leading-[0.9] tracking-tighter">
             Make <span className="serif-italic gradient-text">noise</span><br />
             with us.
           </h2>

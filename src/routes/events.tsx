@@ -83,7 +83,7 @@ function EventsPage() {
               <span>All research remains public</span>
 
             </div>
-            <h1 className="font-serif text-[15vw] lg:text-[11vw] leading-[0.88] tracking-tighter">
+            <h1 className="font-serif text-[12vw] sm:text-[13vw] lg:text-[11vw] leading-[0.88] tracking-tighter">
               Calendar of<br />
               <span className="serif-italic gradient-text">experiments.</span>
             </h1>

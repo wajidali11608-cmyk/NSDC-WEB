@@ -173,7 +173,7 @@ function TeamDetail() {
               <span className="absolute -top-12 -left-6 font-serif text-[28vw] lg:text-[22vw] leading-none opacity-[0.03] select-none pointer-events-none z-[-1]">
                 {team.num}
               </span>
-              <h1 className={`font-serif text-[18vw] lg:text-[13vw] leading-[0.85] tracking-tighter ${accentText[team.accent]}`}>
+              <h1 className={`font-serif text-[12vw] sm:text-[14vw] lg:text-[13vw] leading-[0.85] tracking-tighter ${accentText[team.accent]}`}>
                 {team.name}.
               </h1>
             </div>

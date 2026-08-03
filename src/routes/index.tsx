@@ -143,14 +143,14 @@ function Index() {
   return (
     <SiteLayout>
       {/* HERO */}
-      <section className="relative min-h-[100svh] pt-32 lg:pt-40 px-6 lg:px-12 pb-16 overflow-hidden flex flex-col justify-between">
+      <section className="relative min-h-[100svh] pt-32 lg:pt-40 px-4 sm:px-6 lg:px-12 pb-16 overflow-hidden flex flex-col justify-between">
         <div className="aurora" />
         <div className="noise" />
         <div className="absolute inset-0 grid-lines opacity-[0.15]" />
 
         <div className="relative z-10">
           {/* Top metadata */}
-          <div className="hero-meta flex items-center gap-3 mb-10 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50">
+          <div className="hero-meta hidden sm:flex items-center gap-3 mb-10 font-mono text-[10px] uppercase tracking-[0.3em] text-cream/50">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse-dot" />
             <span>Vol. 02 — Kinetic Systems</span>
             <span className="opacity-40">/</span>
@@ -161,13 +161,13 @@ function Index() {
 
           {/* Hero Title — elegant staggered reveal */}
           <h1 className="font-serif leading-[0.88] tracking-[-0.04em]">
-            <span className="hero-line block text-[12vw] sm:text-[14vw] lg:text-[12vw] text-cream/90">
+            <span className="hero-line block text-[14vw] sm:text-[14vw] lg:text-[12vw] text-cream/90">
               Architecting
             </span>
-            <span className="hero-line block text-[13vw] sm:text-[16vw] lg:text-[13.5vw]">
+            <span className="hero-line block text-[15vw] sm:text-[16vw] lg:text-[13.5vw]">
               <span className="serif-italic hero-gradient-text">the future</span>
             </span>
-            <span className="hero-line block text-[11vw] sm:text-[13vw] lg:text-[10.5vw] text-cream/35">
+            <span className="hero-line block text-[13vw] sm:text-[13vw] lg:text-[10.5vw] text-cream/35">
               in silence.
             </span>
           </h1>

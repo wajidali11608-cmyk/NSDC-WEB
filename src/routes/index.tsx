@@ -160,14 +160,14 @@ function Index() {
           </div>
 
           {/* Hero Title — elegant staggered reveal */}
-          <h1 className="font-serif leading-[0.88] tracking-[-0.04em]">
-            <span className="hero-line block text-[14vw] sm:text-[14vw] lg:text-[12vw] text-cream/90">
+          <h1 className="font-serif leading-[0.88] tracking-[-0.05em] sm:tracking-[-0.04em]">
+            <span className="hero-line block text-[15.5vw] sm:text-[14vw] lg:text-[12vw] text-cream/90">
               Architecting
             </span>
-            <span className="hero-line block text-[15vw] sm:text-[16vw] lg:text-[13.5vw]">
+            <span className="hero-line block text-[17.5vw] sm:text-[16vw] lg:text-[13.5vw]">
               <span className="serif-italic hero-gradient-text">the future</span>
             </span>
-            <span className="hero-line block text-[13vw] sm:text-[13vw] lg:text-[10.5vw] text-cream/35">
+            <span className="hero-line block text-[15vw] sm:text-[13vw] lg:text-[10.5vw] text-cream/35">
               in silence.
             </span>
           </h1>

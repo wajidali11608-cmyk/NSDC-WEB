@@ -322,6 +322,7 @@ export const TEAMS: Team[] = [
       { name: "Takrim", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: TakrimImg },
       { name: "Umair Mallick", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: UmairImg },
       { name: "Baber Khateeb", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: KhateebImg },
+      { name: "Imran Ahmed", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: ImranImg },
       ],
   },
   {

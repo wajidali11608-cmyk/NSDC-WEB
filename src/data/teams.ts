@@ -107,7 +107,7 @@ export const TEAMS: Team[] = [
     ],
     members: [
       { name: "Mohammad Arsalan", role: "Chair", year: "4th Year", bio: "Directing the collective's vision and seasonal strategy.", skills: ["Strategy", "Leadership"], links: [{ label: "Profile", href: "#" }], img: ArsalanImg },
-      { name: "Mohammad Adnan", role: "Co-Chair", year: "4th Year", bio: "Managing collaborative operations across all society divisions.", skills: ["Management", "Operations"], img: AdnanImg },
+      { name: "Mohammad Adnan", role: "Co-Chair", year: "3rd Year", bio: "Managing collaborative operations across all society divisions.", skills: ["Management", "Operations"], img: AdnanImg },
       { name: "Zainab Manzoor", role: "Vice Chair", year: "3rd Year", bio: "Ensuring excellence in our weekly syncs and member engagement.", skills: ["Ops", "Comms"], img: ZainabImg },
       { name: "Laiba Razi", role: "Secretary", year: "2nd Year", bio: "Handling documentation and internal communications.", skills: ["Writing", "Admin"], img: LaibaImg },
       { name: "Adil Ali", role: "Treasurer", year: "2nd Year", bio: "Managing the society's financial health and resources.", skills: ["Finance", "Logistics"], img: AdilImg },
@@ -187,7 +187,7 @@ export const TEAMS: Team[] = [
     ],
     members: [
       { name: "Mohammad Umar", role: "Lead", lead: true, year: "4th Year", bio: "Building the AI infrastructure for our society.", skills: ["ML", "Python", "NLP"], img: UmarImg },
-      { name: "Afaaf Nayyar", role: "Co-Lead", lead: true, year: "2nd Year", bio: "Exploring the limits of generative AI models.", skills: ["Deep Learning", "Models"], img: AfaafImg },
+      { name: "Afaaf Nayyer", role: "Co-Lead", lead: true, year: "2nd Year", bio: "Exploring the limits of generative AI models.", skills: ["Deep Learning", "Models"], img: AfaafImg },
       { name: "Yussra Khan", role: "Data Analyst", year: "2nd Year", bio: "Turning raw student data into actionable insights.", skills: ["SQL", "Stats"], img: YussraImg },
       { name: "Alina Mariyam", role: "Visualization", year: "2nd Year", bio: "Specializing in interactive data dashboards.", skills: ["D3", "Viz"], img: AlinaImg },
     ],
@@ -250,7 +250,7 @@ export const TEAMS: Team[] = [
       { title: "Zine: Tech & Life", year: "2024", type: "Print", blurb: "An annual collection of student tech essays." },
     ],
     members: [
-      { name: "Afaaf Nayyar", role: "Lead", lead: true, year: "2nd Year", bio: "Managing the society's blog and editorial tone.", skills: ["Editing", "Strategy"], img: AfaafImg },
+      { name: "Afaaf Nayyer", role: "Lead", lead: true, year: "2nd Year", bio: "Managing the society's blog and editorial tone.", skills: ["Editing", "Strategy"], img: AfaafImg },
       //{ name: "Vikram Singh", role: "Co-Leads", lead: true, year: "3rd Year", bio: "Specializing in deep-dives on emerging tech.", skills: ["Writing", "Research"] },
       { name: "Warda Amir", role: "Editor", year: "4th Year", bio: "Keeping our project documentation sharp and clear.", skills: ["Copy", "Style"], img: WardaImg },
       { name: "Imran Ahmed", role: "Researcher", year: "4th Year", bio: "Fact-checking and gathering resources for our leads.", skills: ["Research", "Sourcing"], img: ImranImg },
@@ -283,7 +283,7 @@ export const TEAMS: Team[] = [
     ],
     members: [
       { name: "Aruna Azam", role: "Lead", lead: true, year: "3rd Year", bio: "Managing our community growth and presence.", skills: ["Community", "Strategy"], img: ArunaImg },
-      { name: "Zishan", role: "Co-Lead", lead: true, year: "3rd Year", bio: "Turning club projects into viral stories.", skills: ["Growth", "Analytics"], img: ZishanImg },
+      { name: "Zishan", role: "Lead", lead: true, year: "4th Year", bio: "Turning club projects into viral stories.", skills: ["Growth", "Analytics"], img: ZishanImg },
       { name: "Stalin Gupta", role: "Community Design", year: "2nd Year", bio: "Designing all graphics for our digital channels.", skills: ["Figma", "Branding"], img: StalinImg },
       { name: "Kulsoom", role: "Discord Manager", year: "2nd Year", bio: "Keeping the conversation alive in the Nexus Discord.", skills: ["Moderation", "Bot Setup"], img: KulsoomImg },
     ],
@@ -323,7 +323,7 @@ export const TEAMS: Team[] = [
       { name: "Umair Mallick", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: UmairImg },
       { name: "Baber Khateeb", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: KhateebImg },
       { name: "Imran Ahmed", role: "Coordinator", year: "2nd Year", bio: "Handling the day-to-day logistics of our meetups.", skills: ["Events", "Logistics"], img: ImranImg },
-      ],
+    ],
   },
   {
     slug: "creative",

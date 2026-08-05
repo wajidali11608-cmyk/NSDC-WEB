@@ -144,7 +144,7 @@ export const TEAMS: Team[] = [
         name: "Wajid Ali",
         role: "Tech Lead",
         lead: true,
-        year: "Second Year",
+        year: "2nd Year",
         bio: "Managing our stack and mentoring the next gen of builders.",
         img: wajidImg,
         skills: ["TS", "Systems", "GLSL"],

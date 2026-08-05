@@ -182,7 +182,7 @@ function CustomSelect({
 }
 
 // REPLACE THIS with your deployed Google Apps Script URL (see google_sheets_setup.md)
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx0RotdSVjeyw0LrWfizqv_G41kwonNKFopTYFETfktZYj0xpYdXdCLxTwa1IG5BG9v/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLXYRACYhbpVlmV6A5ICN0FP7yZ1neDCRpCe37rL2Q55nZFjotvuwSl18xxcwj60PI/exec";
 
 function ContactPage() {
   const [submitted, setSubmitted] = useState(false);

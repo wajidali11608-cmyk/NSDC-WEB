@@ -191,6 +191,7 @@ function ContactPage() {
   const [intent, setIntent] = useState("Apply 26/27");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [division, setDivision] = useState("");
   const [year, setYear] = useState("");
@@ -206,6 +207,7 @@ function ContactPage() {
     const payload = {
       name,
       email,
+      phone,
       intent,
       division: intent === "Apply 26/27" ? division : "",
       year: intent === "Apply 26/27" ? year : "",
@@ -316,17 +318,19 @@ function ContactPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <Field n="1.1" label="Identity">
-              <input
-                required
-                type="text"
-                placeholder="Your name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                disabled={sending || submitted}
-                className={inputCls}
-              />
-            </Field>
+            <div className="md:col-span-2">
+              <Field n="1.1" label="Identity">
+                <input
+                  required
+                  type="text"
+                  placeholder="Your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  disabled={sending || submitted}
+                  className={inputCls}
+                />
+              </Field>
+            </div>
             <Field n="1.2" label="Uplink">
               <input
                 required
@@ -334,6 +338,17 @@ function ContactPage() {
                 placeholder="you@domain.io"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                disabled={sending || submitted}
+                className={inputCls}
+              />
+            </Field>
+            <Field n="1.3" label="Direct Line">
+              <input
+                required
+                type="tel"
+                placeholder="+91 XXXXX XXXXX"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 disabled={sending || submitted}
                 className={inputCls}
               />

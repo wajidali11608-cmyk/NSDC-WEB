@@ -182,7 +182,7 @@ function CustomSelect({
 }
 
 // REPLACE THIS with your deployed Google Apps Script URL (see google_sheets_setup.md)
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLXYRACYhbpVlmV6A5ICN0FP7yZ1neDCRpCe37rL2Q55nZFjotvuwSl18xxcwj60PI/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyepIQfoLN9SLRq-Y4n3bsyxyguUGC11k-TUFZ9d9bU7SIDDGNnhNPSKwLYHg1GkLK4/exec";
 
 function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -569,7 +569,7 @@ function ContactPage() {
                 <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cream/40">
                   [{String(i + 1).padStart(2, "0")}]
                 </span>
-                
+
                 {/* Logo Badge Container */}
                 <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 group-hover:border-cyan/50 group-hover:bg-cyan/10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 shadow-lg group-hover:shadow-[0_0_25px_rgba(110,240,255,0.25)]">
                   {s.icon}

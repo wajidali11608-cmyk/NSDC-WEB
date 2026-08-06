@@ -333,21 +333,21 @@ function Index() {
           {[
             {
               id: "01",
-              title: "Nexus Site v2.0 Deployment",
-              t: "Core / Infrastructure",
-              s: "Active",
+              title: "Git & GitHub Foundation",
+              t: "Tech",
+              s: "Completed",
             },
             {
               id: "02",
-              title: "Winter Recruitment Window",
-              t: "Management / HR",
-              s: "In Progress",
+              title: "Python with Libraries Series",
+              t: "Tech × Data Science",
+              s: "Completed",
             },
             {
               id: "03",
-              title: "Digital Art Showcase '25",
-              t: "Media / Creative",
-              s: "Scheduled",
+              title: "Brainhack Ideathon",
+              t: "Data Science × Tech",
+              s: "Completed",
             },
           ].map((op) => (
             <li
